@@ -1,0 +1,674 @@
+<!doctype html>
+<html lang="es-MX">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#183b56">
+<title>Registro de Incidencias Escolares | Colegio Anglo Mexicano</title>
+<style>
+:root{--navy:#183b56;--navy2:#214f70;--teal:#087f8c;--paper:#f4f7fa;--card:#fff;--ink:#172b3a;--muted:#657887;--line:#dce5ec;--soft:#eaf2f7;--danger:#b42335;--warning:#9a6700;--success:#16794b;--shadow:0 9px 28px rgba(18,47,69,.08);--radius:16px}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--paper);color:var(--ink);font:15px/1.45 system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}button,input,select,textarea{font:inherit}button{cursor:pointer}button:disabled{opacity:.55;cursor:not-allowed}.hidden{display:none!important}
+#access{min-height:100vh;display:grid;place-items:center;padding:22px;background:radial-gradient(ellipse at top left,#d7e8f1 0,transparent 45%),linear-gradient(135deg,#edf4f8,#f8fafc)}.login-card{width:min(430px,100%);background:white;border:1px solid #d8e4eb;border-radius:24px;padding:32px;box-shadow:0 18px 60px #163b5620}.brand-mark{width:54px;height:54px;border-radius:17px;display:grid;place-items:center;background:#e6f4f5;color:#087f8c;font-size:28px;margin-bottom:16px}.login-card h1{font-size:1.7rem;line-height:1.15;margin:0 0 8px;color:var(--navy)}.subtle{color:var(--muted)}.field{display:flex;flex-direction:column;gap:6px;min-width:0}.field label,.label{font-size:.86rem;font-weight:750;color:#284454}.field input,.field select,.field textarea,.control{width:100%;min-height:44px;border:1px solid #cbd9e3;border-radius:10px;padding:10px 12px;background:white;color:#1a2d3a;outline:none}.field textarea{min-height:124px;resize:vertical}.field input:focus,.field select:focus,.field textarea:focus{border-color:#2793a1;box-shadow:0 0 0 3px #087f8c1a}.btn{border:0;border-radius:10px;min-height:42px;padding:10px 14px;font-weight:750;display:inline-flex;align-items:center;justify-content:center;gap:8px;background:var(--navy);color:white;transition:transform .12s,filter .12s}.btn:hover{filter:brightness(1.08);transform:translateY(-1px)}.btn.primary{background:var(--teal)}.btn.light{background:#e9f1f6;color:#203f54}.btn.outline{border:1px solid var(--line);background:white;color:var(--navy)}.btn.danger{background:#b42335}.btn.warning{background:#875a09}.btn.success{background:#16794b}.btn.small{min-height:34px;padding:7px 10px;font-size:.82rem}.btn.full{width:100%}.login-error{min-height:1.3em;color:var(--danger);font-size:.88rem;margin-top:6px}
+#app{min-height:100vh}.topbar{position:sticky;top:0;z-index:20;background:rgba(255,255,255,.94);backdrop-filter:blur(12px);border-bottom:1px solid var(--line);padding:12px clamp(14px,3vw,34px);display:flex;align-items:center;gap:16px;justify-content:space-between}.brand{display:flex;align-items:center;gap:11px;min-width:0}.brand .brand-mark{width:43px;height:43px;margin:0;border-radius:13px;font-size:22px;flex-shrink:0}.brand-title{font-weight:850;color:var(--navy);font-size:1.03rem;line-height:1.2}.brand-subtitle{font-size:.75rem;color:var(--muted);margin-top:3px}.top-actions{display:flex;gap:8px;align-items:center}.app-layout{display:grid;grid-template-columns:248px minmax(0,1fr);max-width:1660px;margin:0 auto;min-height:calc(100vh - 68px)}.sidebar{padding:24px 14px;border-right:1px solid var(--line);background:#f9fbfc}.nav-label{text-transform:uppercase;letter-spacing:.1em;color:#8494a0;font-size:.68rem;font-weight:850;padding:0 12px 10px}.nav-button{width:100%;text-align:left;display:flex;align-items:center;gap:11px;padding:12px 13px;margin:3px 0;background:transparent;border:0;border-radius:11px;color:#526878;font-weight:730}.nav-button .nav-icon{width:24px;text-align:center;font-size:1.1rem}.nav-button:hover{background:#edf4f7;color:var(--navy)}.nav-button.active{background:#e1f0f1;color:#075d67}.nav-footer{margin:25px 5px 0;border-top:1px solid var(--line);padding:16px 7px;font-size:.78rem;color:var(--muted)}.main{padding:clamp(15px,3vw,32px);min-width:0}.view{display:none}.view.active{display:block}.page-heading{display:flex;align-items:flex-start;justify-content:space-between;gap:18px;margin:0 0 22px}.page-heading h1{margin:0;color:var(--navy);font-size:clamp(1.45rem,2.5vw,2rem);letter-spacing:-.025em}.page-heading p{margin:6px 0 0;color:var(--muted);max-width:760px}.head-actions{display:flex;gap:8px;flex-wrap:wrap;justify-content:flex-end}.cards{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px;margin-bottom:22px}.metric{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:18px;box-shadow:var(--shadow);min-width:0}.metric-top{display:flex;justify-content:space-between;align-items:center;gap:8px;color:var(--muted);font-size:.83rem;font-weight:750}.metric-icon{font-size:1.35rem}.metric-num{font-size:2rem;line-height:1.15;font-weight:850;color:var(--navy);margin-top:12px}.metric-note{font-size:.78rem;color:var(--muted);margin-top:6px}.panel{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow);padding:20px;margin-bottom:18px;min-width:0}.panel-head{display:flex;justify-content:space-between;align-items:center;gap:12px;margin:0 0 16px}.panel-head h2,.panel h2{margin:0;font-size:1.05rem;color:var(--navy)}.panel-head p{margin:4px 0 0;color:var(--muted);font-size:.84rem}.quick-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}.quick-card{display:flex;align-items:flex-start;gap:13px;padding:17px;border:1px solid var(--line);border-radius:13px;background:#fbfdfe;text-align:left;color:var(--ink)}.quick-card:hover{border-color:#70b9bf;background:#f2fbfb}.quick-icon{width:42px;height:42px;border-radius:12px;background:#e4f2f3;display:grid;place-items:center;font-size:1.3rem;flex-shrink:0}.quick-card strong{display:block;color:var(--navy);margin-bottom:4px}.quick-card small{display:block;color:var(--muted);line-height:1.35}
+.form-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}.span-2{grid-column:1/-1}.section-title{font-size:1rem;font-weight:850;color:var(--navy);border-bottom:1px solid var(--line);padding-bottom:10px;margin:7px 0 0}.readonly{background:#f1f5f8!important;color:#536b7b!important}.choice-row{display:flex;gap:9px;flex-wrap:wrap}.choice{position:relative;display:inline-flex;align-items:center;gap:7px;padding:10px 13px;border:1px solid #d3dfe6;border-radius:10px;background:white;cursor:pointer;font-size:.9rem;font-weight:700}.choice input{accent-color:var(--teal)}.priority-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:9px}.priority-option{border:1px solid #d2dde5;border-radius:12px;padding:12px 10px;display:flex;gap:8px;align-items:flex-start;background:white;cursor:pointer;min-height:76px}.priority-option input{accent-color:var(--teal);margin-top:4px}.priority-option strong{display:block;font-size:.83rem}.priority-option small{display:block;color:var(--muted);font-size:.73rem;margin-top:4px;line-height:1.25}.priority-option:has(input:checked){border-color:#16818a;background:#eef9f9;box-shadow:0 0 0 2px #16818a20}.student-search-wrap{position:relative}.student-search-line{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:8px;align-items:start}.student-search-line .btn{white-space:nowrap}.scanner-video{width:100%;max-height:56vh;min-height:220px;background:#091722;border-radius:12px;object-fit:contain}.student-results{position:absolute;z-index:8;left:0;right:0;top:calc(100% + 3px);max-height:280px;overflow:auto;background:white;border:1px solid var(--line);border-radius:12px;box-shadow:var(--shadow)}.student-result{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:10px 12px;border:0;border-bottom:1px solid #eef2f5;background:white;width:100%;text-align:left}.student-result:last-child{border-bottom:0}.student-result:hover{background:#edf8f8}.student-result strong{display:block;font-size:.86rem}.student-result small{color:var(--muted);display:block;margin-top:3px}.chips{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px}.chip{display:inline-flex;align-items:center;gap:9px;border:1px solid #bedfe1;background:#ecf8f8;color:#14555a;border-radius:100px;padding:7px 10px;font-size:.82rem;font-weight:750}.chip button{border:0;background:transparent;color:#14555a;font-weight:900;padding:0 2px}.help{font-size:.79rem;color:var(--muted);margin-top:5px}.form-footer{display:flex;justify-content:flex-end;gap:10px;flex-wrap:wrap;border-top:1px solid var(--line);padding-top:18px;margin-top:8px}.banner{border-radius:12px;padding:12px 14px;background:#fff8e6;border:1px solid #f0dfad;color:#704e08;font-size:.84rem;margin-bottom:16px}.banner.info{background:#edf7fc;border-color:#cce3f0;color:#224f69}.filters{display:grid;grid-template-columns:minmax(180px,2fr) repeat(3,minmax(130px,1fr));gap:10px;margin-bottom:15px}.filters .field label{font-size:.77rem}.table-wrap{width:100%;overflow:auto;border:1px solid var(--line);border-radius:12px}table{border-collapse:collapse;width:100%;min-width:800px;background:white}th,td{padding:11px 12px;text-align:left;vertical-align:top;border-bottom:1px solid #e8eef2;font-size:.84rem}th{font-size:.75rem;text-transform:uppercase;letter-spacing:.055em;background:#f4f8fa;color:#566c7b;position:sticky;top:0;white-space:nowrap}tbody tr:last-child td{border-bottom:0}tbody tr:hover{background:#fbfdfe}.cell-title{font-weight:800;color:var(--navy);margin-bottom:4px}.cell-sub{font-size:.76rem;color:var(--muted);line-height:1.35}.badge{display:inline-flex;align-items:center;white-space:nowrap;border-radius:100px;padding:5px 8px;font-size:.72rem;font-weight:850;border:1px solid transparent}.badge.urgent{background:#fdebed;color:#9c2534;border-color:#f6c9cf}.badge.action{background:#fff1dc;color:#925500;border-color:#f6ddb1}.badge.follow{background:#e9f2ff;color:#245b9b;border-color:#c9ddfa}.badge.info{background:#edf1f4;color:#52616c;border-color:#dbe2e7}.badge.active{background:#e8f4fc;color:#245b80}.badge.resolved{background:#e5f5ea;color:#18623c}.badge.discarded{background:#f1eafa;color:#6d3b91}.badge.archived{background:#edf0f2;color:#5c6770}.empty{padding:35px 18px;text-align:center;color:var(--muted)}.empty-icon{font-size:2rem;margin-bottom:8px}.report-toggle{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:17px}.report-toggle .btn.active{background:var(--teal);color:white}.detail-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:13px}.detail-item{padding:12px;background:#f7fafc;border:1px solid #e6edf2;border-radius:11px;min-width:0}.detail-item.full{grid-column:1/-1}.detail-label{font-size:.74rem;text-transform:uppercase;letter-spacing:.055em;font-weight:850;color:#728593;margin-bottom:5px}.detail-value{white-space:pre-wrap;overflow-wrap:anywhere}.modal-backdrop{position:fixed;inset:0;background:#10263599;z-index:50;display:none;align-items:center;justify-content:center;padding:15px}.modal-backdrop.open{display:flex}.modal{width:min(920px,100%);max-height:92vh;overflow:auto;background:#fff;border-radius:19px;box-shadow:0 22px 80px #071b29aa;padding:22px}.modal-top{display:flex;justify-content:space-between;gap:12px;align-items:flex-start;border-bottom:1px solid var(--line);padding-bottom:14px;margin-bottom:16px}.modal-top h2{margin:0;color:var(--navy);font-size:1.25rem}.modal-close{border:0;background:#edf2f6;border-radius:9px;width:38px;height:38px;font-size:1.2rem}.modal-actions{display:flex;gap:8px;flex-wrap:wrap;justify-content:flex-end;border-top:1px solid var(--line);padding-top:15px;margin-top:17px}.history-item{position:relative;padding:17px 18px 17px 24px;border:1px solid var(--line);border-radius:12px;margin-bottom:12px;background:#fff}.history-item:before{content:"";position:absolute;width:4px;top:14px;bottom:14px;left:9px;border-radius:4px;background:#7fb6be}.history-date{font-size:.78rem;color:var(--muted);font-weight:750}.history-item h3{font-size:.98rem;margin:7px 0;color:var(--navy)}.history-meta{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin-bottom:8px}.history-desc{white-space:pre-wrap;overflow-wrap:anywhere;line-height:1.55}.inline-fields{display:flex;gap:10px;flex-wrap:wrap;align-items:flex-end}.inline-fields .field{flex:1;min-width:160px}.footer-note{color:var(--muted);font-size:.77rem;margin-top:16px}.sync-status{display:flex;align-items:center;gap:7px;padding:8px 10px;border-radius:10px;background:#eff6f9;color:#355a6e;font-size:.78rem;font-weight:750}.dot{width:8px;height:8px;background:#b17a13;border-radius:50%;display:inline-block}.dot.good{background:#168552}.dot.bad{background:#bd3444}.toast{position:fixed;right:20px;bottom:20px;z-index:100;max-width:min(450px,calc(100vw - 40px));background:#183b56;color:#fff;padding:13px 16px;border-radius:12px;box-shadow:var(--shadow);display:none}.toast.show{display:block;animation:in .18s ease-out}@keyframes in{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
+@media(max-width:1080px){.app-layout{grid-template-columns:210px minmax(0,1fr)}.cards{grid-template-columns:repeat(2,minmax(0,1fr))}.priority-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.filters{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:760px){.topbar{align-items:flex-start}.brand-subtitle{display:none}.app-layout{display:block}.sidebar{position:sticky;top:67px;z-index:18;display:flex;gap:5px;overflow-x:auto;padding:8px 10px;border-right:0;border-bottom:1px solid var(--line);background:#f8fbfc}.nav-label,.nav-footer{display:none}.nav-button{white-space:nowrap;width:auto;min-width:max-content;padding:9px 11px;margin:0;font-size:.8rem}.nav-button .nav-icon{width:auto}.main{padding:17px 12px}.page-heading{display:block}.head-actions{justify-content:flex-start;margin-top:14px}.form-grid,.detail-grid{grid-template-columns:1fr}.span-2,.detail-item.full{grid-column:auto}.quick-grid{grid-template-columns:1fr}.filters{grid-template-columns:1fr 1fr}.filters .field:first-child{grid-column:1/-1}.panel{padding:15px}.priority-grid{grid-template-columns:1fr 1fr}.metric{padding:14px}.metric-num{font-size:1.7rem}.top-actions .hide-mobile{display:none}}
+@media(max-width:430px){.brand-title{font-size:.9rem}.topbar{padding:10px}.brand .brand-mark{width:37px;height:37px}.cards{gap:9px}.metric-top{font-size:.75rem}.priority-grid,.filters{grid-template-columns:1fr}.filters .field:first-child{grid-column:auto}.form-footer .btn{flex:1}.panel-head{align-items:flex-start;flex-direction:column}}
+@media print{body{background:#fff}.topbar,.sidebar,.no-print,#access{display:none!important}.app-layout{display:block;min-height:0}.main{padding:0}.view{display:none!important}#bitacora-print{display:block!important}.print-page{page-break-after:always;padding:16mm 14mm;color:#111;font:11pt/1.35 Georgia,serif}.print-page:last-child{page-break-after:auto}.print-page h1{text-align:center;font-size:18pt;margin:0 0 4mm}.print-page h2{text-align:center;font-size:13pt;margin:0 0 6mm}.print-meta{display:grid;grid-template-columns:1fr 1fr;gap:3mm 9mm;border:1px solid #999;padding:4mm;margin:4mm 0}.print-entry{border:1px solid #999;padding:4mm;margin:4mm 0;break-inside:avoid}.print-entry h3{margin:0 0 2mm;font-size:12pt}.print-entry p{margin:2mm 0}.print-signatures{display:grid;grid-template-columns:1fr 1fr;gap:15mm;margin-top:15mm}.print-signatures div{border-top:1px solid #333;text-align:center;padding-top:2mm}.print-note{color:#333;font-size:9pt}.badge{border:1px solid #888!important;background:#fff!important;color:#111!important}}
+
+/* MODO OSCURO PERSISTENTE — diseño integral para todas las pantallas */
+.theme-toggle-login{position:fixed;top:14px;right:14px;z-index:10001;display:inline-flex;align-items:center;gap:7px;padding:10px 13px;border:1px solid #c9d8e3;border-radius:12px;background:#fff;color:#183b56;font-size:.84rem;font-weight:800;box-shadow:0 6px 20px rgba(12,31,47,.14);cursor:pointer}
+.theme-toggle-app{white-space:nowrap}
+body.dark-mode{color-scheme:dark;--paper:#0b1118;--card:#141d27;--ink:#e8eef5;--muted:#aebccc;--line:#344252;--soft:#202b38;--shadow:0 12px 32px rgba(0,0,0,.34);background:var(--paper);color:var(--ink)}
+body.dark-mode #access{background:radial-gradient(ellipse at top left,#172c3c 0,transparent 45%),linear-gradient(135deg,#090e14,#101a25)}
+body.dark-mode .login-card{background:#141d27;border-color:#344252;color:#e8eef5;box-shadow:0 20px 65px rgba(0,0,0,.45)}
+body.dark-mode .login-card h1{color:#d9eaff}
+body.dark-mode .brand-mark{background:#1d3a45;color:#7be0e2}
+body.dark-mode .subtle,body.dark-mode .help,body.dark-mode .footer-note,body.dark-mode .brand-subtitle,body.dark-mode .page-heading p,body.dark-mode .panel-head p,body.dark-mode .metric-top,body.dark-mode .metric-note,body.dark-mode .nav-footer,body.dark-mode .cell-sub,body.dark-mode .history-date{color:#aebccc}
+body.dark-mode .topbar{background:rgba(14,21,30,.95);border-bottom-color:#344252}
+body.dark-mode .brand-title,body.dark-mode .page-heading h1,body.dark-mode .panel-head h2,body.dark-mode .panel h2,body.dark-mode .cell-title,body.dark-mode .metric-num,body.dark-mode .quick-card strong,body.dark-mode .section-title{color:#d6e8fa}
+body.dark-mode .sidebar{background:#0e151e;border-right-color:#344252}
+body.dark-mode .nav-button{color:#bbc8d5}
+body.dark-mode .nav-button:hover{background:#1c2b39;color:#e9f6ff}
+body.dark-mode .nav-button.active{background:#163b43;color:#8be0df}
+body.dark-mode .metric,body.dark-mode .panel{background:var(--card);border-color:var(--line);box-shadow:var(--shadow)}
+body.dark-mode .quick-card{background:#17222e;border-color:#344252;color:#e8eef5}
+body.dark-mode .quick-card:hover{background:#1d303b;border-color:#4c9ca2}
+body.dark-mode .quick-icon{background:#203a43;color:#83dadd}
+body.dark-mode .field label,body.dark-mode .label{color:#d4e0eb}
+body.dark-mode .field input,body.dark-mode .field select,body.dark-mode .field textarea,body.dark-mode .control,body.dark-mode input,body.dark-mode select,body.dark-mode textarea{background:#0d151e;color:#eef4fb;border-color:#405163}
+body.dark-mode input::placeholder,body.dark-mode textarea::placeholder{color:#8597a9;opacity:1}
+body.dark-mode .field input:focus,body.dark-mode .field select:focus,body.dark-mode .field textarea:focus{border-color:#49bec5;box-shadow:0 0 0 3px #26a6b01c}
+body.dark-mode .readonly{background:#202b37!important;color:#b9c7d5!important;border-color:#3d4d5d!important}
+body.dark-mode .btn.light,body.dark-mode .btn.outline{background:#202b37;color:#e5edf5;border:1px solid #405164}
+body.dark-mode .btn.light:hover,body.dark-mode .btn.outline:hover{background:#2b3948}
+body.dark-mode .theme-toggle-login{background:#182431;color:#f1f6fb;border-color:#47596c;box-shadow:0 7px 24px #0008}
+body.dark-mode .choice,body.dark-mode .priority-option{background:#151f2a;color:#e7eef6;border-color:#394a5b}
+body.dark-mode .priority-option small{color:#aebccc}
+body.dark-mode .priority-option:has(input:checked){border-color:#40bbc3;background:#17343a;box-shadow:0 0 0 2px #40bbc322}
+body.dark-mode .student-results{background:#121b25;border-color:#405163;box-shadow:0 12px 28px #0006}
+body.dark-mode .student-result{background:#121b25;color:#e8eef5;border-bottom-color:#2c3948}
+body.dark-mode .student-result:hover{background:#1d303b}
+body.dark-mode .student-result small{color:#aebccc}
+body.dark-mode .chip{background:#17343a;color:#a4eff0;border-color:#32666d}
+body.dark-mode .chip button{color:#a4eff0}
+body.dark-mode .banner{background:#3b2f16;border-color:#6d5524;color:#f7d88a}
+body.dark-mode .banner.info{background:#152d3d;border-color:#294e67;color:#c8e8ff}
+body.dark-mode .table-wrap{border-color:#344252}
+body.dark-mode table{background:#121b25;color:#e8eef5}
+body.dark-mode th{background:#1d2a37;color:#cbd9e6;border-bottom-color:#3a4858}
+body.dark-mode td{border-bottom-color:#2b3947;color:#e3ebf3}
+body.dark-mode tbody tr:hover{background:#1b2935}
+body.dark-mode .empty{color:#acbac8}
+body.dark-mode .detail-item{background:#17222d;border-color:#344252}
+body.dark-mode .detail-label{color:#aab9c8}
+body.dark-mode .detail-value{color:#e8eef5}
+body.dark-mode .modal{background:#121a24;color:#e8eef5;border:1px solid #344252}
+body.dark-mode .modal-top{border-bottom-color:#344252}
+body.dark-mode .modal-top h2{color:#d6e8fa}
+body.dark-mode .modal-close{background:#263442;color:#eaf2fa}
+body.dark-mode .history-item{background:#141d27;border-color:#344252;color:#e8eef5}
+body.dark-mode .history-item h3{color:#d6e8fa}
+body.dark-mode .history-desc{color:#e8eef5}
+body.dark-mode .sync-status{background:#1a2b37;color:#ccdae7}
+body.dark-mode .dot{background:#f5c45d}
+body.dark-mode .dot.good{background:#50d69c}
+body.dark-mode .dot.bad{background:#ff6e7a}
+body.dark-mode .form-footer,body.dark-mode .modal-actions{border-top-color:#344252}
+body.dark-mode .report-toggle .btn.active{background:#087f8c;color:#fff}
+body.dark-mode .theme-toggle-login:focus-visible,body.dark-mode button:focus-visible,body.dark-mode input:focus-visible,body.dark-mode select:focus-visible,body.dark-mode textarea:focus-visible{outline:2px solid #6ed9df;outline-offset:2px}
+/* Elementos generados con fondos en línea en los paneles de historial/reporte */
+body.dark-mode #studentReportResultsContent .panel,body.dark-mode #historyHeader .panel{background:#17222d!important;color:#e8eef5!important;border-color:#344252!important}
+body.dark-mode .student-results .student-result{color:#e8eef5}
+body.dark-mode .toast{background:#20364a;color:#fff}
+/* Señal semántica del evento: urgente sin resolver en rojo; asunto pendiente o cita no realizada en amarillo. */
+.record-flag-critical td{background:#fff0f1!important;color:#761b27!important;border-top:1px solid #f0a7af;border-bottom:1px solid #f0a7af}
+.record-flag-critical td:first-child{border-left:5px solid #c52e40}
+.record-flag-pending td{background:#fff7df!important;color:#684b08!important;border-top:1px solid #eed58e;border-bottom:1px solid #eed58e}
+.record-flag-pending td:first-child{border-left:5px solid #d49b13}
+.record-flag-critical .cell-title,.record-flag-critical .cell-sub,.record-flag-critical td{color:#761b27!important}
+.record-flag-pending .cell-title,.record-flag-pending .cell-sub,.record-flag-pending td{color:#684b08!important}
+body.dark-mode .record-flag-critical td{background:#451d26!important;color:#ffdce0!important;border-top-color:#853744;border-bottom-color:#853744}
+body.dark-mode .record-flag-critical td:first-child{border-left-color:#ff6674}
+body.dark-mode .record-flag-pending td{background:#403319!important;color:#ffe8a8!important;border-top-color:#725b25;border-bottom-color:#725b25}
+body.dark-mode .record-flag-pending td:first-child{border-left-color:#f3c34e}
+body.dark-mode .record-flag-critical .cell-title,body.dark-mode .record-flag-critical .cell-sub,body.dark-mode .record-flag-critical td{color:#ffdce0!important}
+body.dark-mode .record-flag-pending .cell-title,body.dark-mode .record-flag-pending .cell-sub,body.dark-mode .record-flag-pending td{color:#ffe8a8!important}
+.history-item.record-flag-critical{background:#fff0f1!important;border:1px solid #e69ba5;box-shadow:inset 5px 0 #c52e40}
+.history-item.record-flag-pending{background:#fff7df!important;border:1px solid #e9cf82;box-shadow:inset 5px 0 #d49b13}
+body.dark-mode .history-item.record-flag-critical{background:#451d26!important;border-color:#853744;box-shadow:inset 5px 0 #ff6674}
+body.dark-mode .history-item.record-flag-pending{background:#403319!important;border-color:#725b25;box-shadow:inset 5px 0 #f3c34e}
+.risk-indicator{padding:11px 13px;border-radius:10px;margin-bottom:13px;font-size:.85rem;font-weight:850;letter-spacing:.015em}
+.risk-indicator.record-flag-critical{background:#fde3e7;color:#941f30;border:1px solid #efacb6}
+.risk-indicator.record-flag-pending{background:#fff1bf;color:#744f00;border:1px solid #e9cf82}
+body.dark-mode .risk-indicator.record-flag-critical{background:#451d26;color:#ffdce0;border-color:#853744}
+body.dark-mode .risk-indicator.record-flag-pending{background:#403319;color:#ffe8a8;border-color:#725b25}
+@media(max-width:600px){.theme-toggle-login{top:8px;right:8px;padding:8px 10px;font-size:.78rem}.theme-toggle-app{font-size:.76rem;padding:7px 9px;min-height:34px}.top-actions{gap:5px;flex-wrap:wrap;justify-content:flex-end}.sync-status{display:none!important}}
+@media print{body.dark-mode,body.dark-mode .main{background:#fff!important;color:#111!important}body.dark-mode .print-page{background:#fff!important;color:#111!important}}
+
+
+/* AJUSTES V3: acceso limpio, panel inicial mínimo y uso prioritario en Android */
+.login-card h1,.login-card .login-copy{text-align:center}
+.login-card h1{margin-top:4px}
+.login-card .login-copy{line-height:1.55;margin:8px 0 24px!important}
+.home-screen{max-width:560px;margin:clamp(24px,7vh,78px) auto 0;padding:clamp(14px,3vw,28px);}
+.home-screen .page-heading{justify-content:center;text-align:center;margin-bottom:22px}
+.home-screen .page-heading>div{width:100%}
+.home-screen .page-heading p{margin-left:auto;margin-right:auto}
+.home-register{width:100%;min-height:62px;border-radius:16px;font-size:1.08rem;box-shadow:0 8px 22px rgba(8,127,140,.18)}
+.student-picker-filters{border:1px solid var(--line);background:var(--soft);padding:12px;border-radius:13px;margin-bottom:12px}
+.picker-caption{font-size:.79rem;font-weight:800;color:var(--muted);margin:0 0 8px}
+.student-level-buttons{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}
+.student-level-button,.student-group-button{border:1px solid var(--line);border-radius:10px;background:var(--card);color:var(--ink);min-height:43px;padding:9px 10px;font-weight:800;font-size:.88rem}
+.student-level-button.active,.student-group-button.active{background:var(--teal);border-color:var(--teal);color:#fff}
+.student-group-wrap{border-top:1px solid var(--line);padding-top:12px;margin-top:12px}
+.student-group-buttons{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:7px}
+.student-group-button{min-height:40px;padding:8px 6px;font-size:.82rem}
+.home-screen .page-heading h1{font-size:clamp(1.55rem,5vw,2rem)}
+@media(max-width:760px){
+  #access{padding:58px 14px 20px}
+  .login-card{padding:26px 22px;width:min(410px,100%)}
+  .login-card h1{font-size:1.55rem}
+  .topbar{padding:10px 12px;flex-wrap:wrap;gap:8px}
+  .brand{width:100%;min-width:0}
+  .brand-title{font-size:1rem}
+  .top-actions{width:100%;display:grid;grid-template-columns:minmax(0,1fr) auto;gap:7px}
+  .top-actions .theme-toggle-app{justify-self:stretch}
+  .top-actions>button:last-child{justify-self:stretch}
+  .app-layout{display:block}
+  .sidebar{position:static;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:5px;overflow:visible;padding:8px;border-right:0;border-bottom:1px solid var(--line)}
+  .nav-button{min-width:0;width:100%;white-space:normal;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;gap:3px;padding:9px 4px;margin:0;font-size:.72rem;line-height:1.15;min-height:56px}
+  .nav-button .nav-icon{width:auto;font-size:1.05rem}
+  .main{padding:13px 10px}
+  .page-heading{margin-bottom:14px}
+  .page-heading h1{font-size:1.42rem}
+  .panel{padding:13px;border-radius:13px}
+  .form-grid,.detail-grid{grid-template-columns:minmax(0,1fr);gap:12px}
+  .span-2,.detail-item.full{grid-column:auto}
+  .section-title{font-size:.94rem;margin-top:3px}
+  .field input,.field select,.field textarea{min-height:46px;font-size:16px}
+  .field textarea{min-height:112px}
+  .choice-row{display:grid;grid-template-columns:1fr;gap:8px}
+  .choice{width:100%;min-height:48px}
+  .priority-grid{grid-template-columns:1fr;gap:8px}
+  .priority-option{min-height:60px;align-items:center;padding:11px}
+  .student-search-line{grid-template-columns:minmax(0,1fr);gap:8px}
+  .student-results{position:relative;left:auto;right:auto;top:auto;max-height:235px;margin-top:5px}
+  .student-search-line .btn{width:100%;min-height:44px}
+  .student-level-buttons{grid-template-columns:1fr;gap:7px}
+  .student-group-buttons{grid-template-columns:repeat(2,minmax(0,1fr));gap:7px}
+  .student-level-button,.student-group-button{min-height:46px;font-size:.9rem}
+  .form-footer{display:grid;grid-template-columns:1fr;gap:8px;padding-top:13px}
+  .form-footer .btn{width:100%;min-height:46px}
+  .report-toggle{display:grid;grid-template-columns:1fr;gap:8px}
+  .report-toggle .btn{width:100%;min-height:46px}
+  .filters{grid-template-columns:1fr;gap:11px}
+  .filters .field:first-child{grid-column:auto}
+  .modal-backdrop{padding:8px;align-items:flex-end}
+  .modal{padding:15px;border-radius:17px 17px 10px 10px;max-height:91vh;width:100%}
+  .modal-actions{display:grid;grid-template-columns:1fr;gap:8px}
+  .modal-actions .btn{width:100%;min-height:46px}
+  .home-screen{margin:3vh auto 0;padding:10px 4px}
+  .home-register{min-height:64px;font-size:1.08rem}
+  .quick-grid{grid-template-columns:1fr}
+  .hide-mobile{display:none!important}
+}
+@media(max-width:380px){
+  .theme-toggle-app{font-size:.74rem;padding:7px 6px}
+  .nav-button{font-size:.68rem;min-height:54px}
+  .student-group-buttons{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .top-actions{grid-template-columns:minmax(0,1fr) auto}
+}
+
+</style>
+</head>
+<body>
+<script>try{if(localStorage.getItem("incidenciasTema")==="oscuro")document.body.classList.add("dark-mode")}catch(e){}</script>
+<button type="button" id="themeToggleLogin" class="theme-toggle-login" onclick="AlternarTema()" aria-pressed="false" title="Cambiar apariencia">🌙 Modo oscuro</button>
+<div id="access">
+  <form class="login-card" id="loginForm">
+    <h1>Registro de incidencias</h1>
+    <p class="subtle login-copy">Colegio Anglo Mexicano<br>Ingrese la contraseña para continuar.</p>
+    <div class="field"><label for="passwordInput">Contraseña</label><input id="passwordInput" type="password" inputmode="numeric" autocomplete="current-password" placeholder="Contraseña de acceso" required></div>
+    <button class="btn primary full" style="margin-top:14px" type="submit">Entrar al sistema <span aria-hidden="true">→</span></button>
+    <div id="loginError" class="login-error" role="alert"></div>
+  </form>
+</div>
+<div id="app" class="hidden">
+  <header class="topbar">
+    <div class="brand"><div><div class="brand-title">Registro de Incidencias</div><div class="brand-subtitle">Colegio Anglo Mexicano</div></div></div>
+    <div class="top-actions"><button class="btn outline small theme-toggle-app" id="themeToggleApp" onclick="AlternarTema()" aria-pressed="false" title="Cambiar apariencia">🌙 Modo oscuro</button><div class="sync-status" id="topSync"><span class="dot"></span><span id="topSyncText">Modo local</span></div><button class="btn light small hide-mobile" onclick="CambiarVista('sincronizacion')">☁ Sincronización</button><button class="btn outline small" onclick="CerrarSesion()">Salir</button></div>
+  </header>
+  <div class="app-layout">
+    <aside class="sidebar">
+      <div class="nav-label">Menú principal</div>
+      <button class="nav-button active" data-view="inicio" onclick="CambiarVista('inicio')"><span class="nav-icon">＋</span> Registrar incidencia</button>
+      <button class="nav-button" data-view="panel" onclick="CambiarVista('panel')"><span class="nav-icon">⌂</span> Panel de incidencias</button>
+      <button class="nav-button" data-view="reportes" onclick="CambiarVista('reportes')"><span class="nav-icon">▤</span> Reportes</button>
+      <button class="nav-button" data-view="historial" onclick="CambiarVista('historial')"><span class="nav-icon">◷</span> Historial del estudiante</button>
+      <button class="nav-button" data-view="bitacora" onclick="CambiarVista('bitacora')"><span class="nav-icon">▣</span> Bitácora / imprimir</button>
+      <button class="nav-button" data-view="sincronizacion" onclick="CambiarVista('sincronizacion')"><span class="nav-icon">☁</span> Base de datos</button>
+      <div class="nav-footer">Sin imágenes ni fotografías.<br>El registro local permite trabajar sin conexión.</div>
+    </aside>
+    <main class="main">
+            <section class="view active" id="view-inicio">
+        <div class="home-screen">
+          <button class="btn primary home-register" type="button" onclick="PrepararNuevaIncidencia();CambiarVista('nueva')"><span aria-hidden="true">＋</span> Registrar incidencia</button>
+        </div>
+      </section>
+<section class="view" id="view-panel">
+        <div class="page-heading"><div><h1>Panel de incidencias</h1><p>Registro claro de eventos escolares y seguimiento por parte de Dirección.</p></div><div class="head-actions"><button class="btn primary" onclick="PrepararNuevaIncidencia();CambiarVista('nueva')">＋ Registrar incidencia</button></div></div>
+        <div class="cards" id="dashboardMetrics"></div>
+        <div class="panel"><div class="panel-head"><div><h2>Accesos rápidos</h2><p>Las consultas y decisiones están separadas para facilitar su uso.</p></div></div><div class="quick-grid">
+          <button class="quick-card" onclick="PrepararNuevaIncidencia();CambiarVista('nueva')"><span class="quick-icon">✎</span><span><strong>Nueva incidencia</strong><small>Captura sencilla, alumnos múltiples y hora automática.</small></span></button>
+          <button class="quick-card" onclick="CambiarVista('reportes');CambiarReporte('evento')"><span class="quick-icon">▤</span><span><strong>Reporte por evento</strong><small>Ver cada incidencia completa sin duplicarla por alumno.</small></span></button>
+          <button class="quick-card" onclick="CambiarVista('historial')"><span class="quick-icon">◷</span><span><strong>Historial del estudiante</strong><small>Consultar solo los eventos relacionados con un alumno.</small></span></button>
+        </div></div>
+        <div class="panel"><div class="panel-head"><div><h2>Incidencias recientes</h2><p>Ordenadas por nivel de atención y, dentro de cada nivel, de la más antigua a la más reciente.</p></div><button class="btn light small" onclick="CambiarVista('reportes')">Ver todos los reportes →</button></div><div id="recentList"></div></div>
+      </section>
+      <section class="view" id="view-nueva">
+        <div class="page-heading"><div><h1 id="formTitle">Registrar incidencia</h1></div></div>
+        <form id="incidentForm" class="panel">
+          <div class="form-grid">
+            <div class="section-title span-2">1. Registro del evento</div>
+            <div class="field span-2"><label>Persona que reporta *</label><select id="staffSelect" required></select></div>
+            <div class="field span-2"><label>Tipo de incidencia *</label><div class="choice-row"><label class="choice"><input type="radio" name="incidentType" value="DeAlumno" checked onchange="CambiarTipoIncidencia()"> Incidencia de alumno</label><label class="choice"><input type="radio" name="incidentType" value="General" onchange="CambiarTipoIncidencia()"> Incidencia general</label></div><div class="help">General: instalaciones o ambiente escolar sin alumnos relacionados. De alumno: evento relacionado directamente con uno o más estudiantes.</div></div>
+            <div id="studentBlock" class="field span-2">
+              <label>Alumnos relacionados *</label>
+              <div class="student-picker-filters">
+                <div class="picker-caption">Primero selecciona el nivel escolar</div>
+                <div id="incidentLevelButtons" class="student-level-buttons"></div>
+                <div id="incidentGroupWrap" class="student-group-wrap hidden"><div class="picker-caption">Después selecciona un grupo</div><div id="incidentGroupButtons" class="student-group-buttons"></div></div>
+              </div>
+              <div class="student-search-wrap"><div class="student-search-line"><input id="studentSearch" autocomplete="off" placeholder="Buscar por nombre o matrícula" oninput="BuscarAlumnosParaAgregar()"><button class="btn light" type="button" onclick="AbrirEscaner('incident')">▦ Escanear ID</button></div><div id="studentResults" class="student-results hidden"></div></div>
+              <div id="selectedStudents" class="chips"></div>
+            </div>
+            <div class="section-title span-2">2. Descripción y atención</div>
+            <div class="field span-2"><label for="description">Redacción de la incidencia *</label><textarea id="description" required maxlength="12000" placeholder="Describa de forma clara qué ocurrió, cuándo y en qué circunstancias. Evite conclusiones no confirmadas."></textarea></div>
+            <div class="field span-2"><label>Nivel de atención inicial *</label><div class="priority-grid">
+              <label class="priority-option"><input type="radio" name="priority" value="Solo informar" checked><span><strong>Solo informar</strong><small>Dejar conocimiento del evento.</small></span></label>
+              <label class="priority-option"><input type="radio" name="priority" value="Dar seguimiento"><span><strong>Dar seguimiento</strong><small>Revisar evolución o antecedentes.</small></span></label>
+              <label class="priority-option"><input type="radio" name="priority" value="Requiere una acción"><span><strong>Requiere una acción</strong><small>Necesita una intervención concreta.</small></span></label>
+              <label class="priority-option"><input type="radio" name="priority" value="Urgente"><span><strong>Urgente</strong><small>Requiere atención prioritaria.</small></span></label>
+            </div><div class="help">Quien reporta propone el nivel inicial. Dirección puede ajustarlo después.</div></div>
+            <div class="field"><label for="location">Lugar de la incidencia *</label><select id="location" required><option value="">Seleccionar lugar...</option><option>Primero</option><option>Segundo</option><option>Tercero</option><option>Cuarto</option><option>Cuarto B</option><option>Quinto</option><option>Sexto</option><option>Dirección</option><option>Escaleras</option><option>Comedor</option><option>Área de piscina</option><option>Arenero</option><option>Oficinas</option></select></div>
+            <div class="field"><label for="informTutor">¿Informar al tutor?</label><select id="informTutor"><option value="No">No</option><option value="Sí">Sí</option><option value="Por determinar">Por determinar</option></select></div>
+            <div class="field span-2"><label for="actionNeeded">Acción requerida o sugerida</label><textarea id="actionNeeded" maxlength="6000" style="min-height:82px" placeholder="Acción que se considera necesaria, si ya se identifica alguna."></textarea></div>
+            <div class="field span-2"><label for="recommendMeeting">¿Recomendar cita con el tutor?</label><select id="recommendMeeting" onchange="AlternarCita()"><option value="No">No</option><option value="Sí">Sí</option><option value="Por determinar">Por determinar</option></select></div>
+            <div id="meetingFields" class="form-grid span-2 hidden"><div class="field"><label for="meetingDate">Fecha sugerida de cita</label><input id="meetingDate" type="date"></div><div class="field"><label for="meetingTime">Hora sugerida de cita</label><input id="meetingTime" type="time"></div></div>
+            <div class="form-footer span-2"><button class="btn outline" type="button" onclick="LimpiarFormulario()">Limpiar formulario</button><button class="btn primary" id="saveIncidentBtn" type="submit">Guardar incidencia</button></div>
+          </div>
+        </form>
+      </section>
+      <section class="view" id="view-reportes">
+        <div class="page-heading"><div><h1>Reportes</h1><p>Consulta por evento o construye un reporte por estudiante sin crear registros duplicados.</p></div><div class="head-actions"><button class="btn primary" onclick="ExportarIncidenciasCSV()">↓ Exportar CSV</button></div></div>
+        <div class="report-toggle"><button class="btn light active" id="toggleEvento" onclick="CambiarReporte('evento')">▤ Reporte por evento</button><button class="btn light" id="toggleAlumno" onclick="CambiarReporte('alumno')">♙ Reporte por estudiante</button></div>
+        <div id="eventReportPanel" class="panel"><div class="filters">
+          <div class="field"><label>Buscar</label><input id="eventSearch" placeholder="Folio, descripción, personal, alumno..." oninput="RenderizarReportes()"></div>
+          <div class="field"><label>Nivel de atención</label><select id="eventPriorityFilter" onchange="RenderizarReportes()"><option value="">Todos los niveles</option><option>Urgente</option><option>Requiere una acción</option><option>Dar seguimiento</option><option>Solo informar</option></select></div>
+          <div class="field"><label>Estado</label><select id="eventStatusFilter" onchange="RenderizarReportes()"><option value="">Todos los estados</option><option>Activa</option><option>Resuelta</option><option>Descartada</option><option>Archivada</option></select></div>
+          <div class="field"><label>Tipo de incidencia</label><select id="eventTypeFilter" onchange="RenderizarReportes()"><option value="">Todos los tipos</option><option value="DeAlumno">De alumno</option><option value="General">General</option></select></div>
+        </div><div id="eventReportTable"></div></div>
+        <div id="studentReportPanel" class="panel hidden"><div class="panel-head"><div><h2>Reporte por estudiante</h2><p>Elija un alumno para listar los eventos vinculados; otros alumnos relacionados no se mostrarán en esta vista.</p></div></div><div class="field" style="max-width:650px;margin-bottom:16px"><label for="studentReportSearch">Buscar alumno por nombre o identificador</label><div class="student-search-line"><input id="studentReportSearch" placeholder="Ej. A0042 o apellido" oninput="BuscarEstudiantesVista('studentReportSearch','studentReportResults','selectStudentForReport')"><button class="btn light" type="button" onclick="AbrirEscaner('report')">▦ Escanear ID</button></div><div id="studentReportResults" class="student-results hidden" style="position:relative;top:auto;margin-top:4px"></div></div><div id="studentReportResultsContent"></div></div>
+      </section>
+      <section class="view" id="view-historial">
+        <div class="page-heading"><div><h1>Historial del estudiante</h1><p>Consulta individual separada del reporte general. Esta vista no enumera los nombres de otros alumnos vinculados.</p></div></div>
+        <div class="panel"><div class="field"><label>Selecciona el nivel escolar</label><div id="historyLevelButtons" class="student-level-buttons"></div><div id="historyGroupWrap" class="student-group-wrap hidden"><div class="picker-caption">Selecciona el grupo</div><div id="historyGroupButtons" class="student-group-buttons"></div></div></div><div class="field" style="margin-top:14px"><label for="historySearch">O busca al estudiante por nombre o matrícula</label><div class="student-search-line"><input id="historySearch" placeholder="Escribe el nombre o matrícula" oninput="BuscarHistorialEstudiante()"><button class="btn light" type="button" onclick="AbrirEscaner('history')">▦ Escanear ID</button></div><div id="historySearchResults" class="student-results hidden" style="position:relative;top:auto;margin-top:4px"></div></div><div id="historyHeader" style="margin-top:16px"></div><div id="historyContent" style="margin-top:15px"><div class="empty"><div class="empty-icon">◷</div>Seleccione un estudiante para consultar su historial.</div></div></div>
+      </section>
+      <section class="view" id="view-bitacora">
+        <div class="page-heading"><div><h1>Bitácora e impresión</h1><p>Genera un documento imprimible de incidencias vinculadas a alumnos, por fecha o rango y por grupo.</p></div></div>
+        <div class="banner info">La bitácora reúne eventos ya registrados; no crea nuevas incidencias. Al imprimir puedes elegir «Guardar como PDF» en el diálogo del navegador.</div>
+        <div class="panel"><div class="form-grid">
+          <div class="field"><label for="logMode">Periodo</label><select id="logMode" onchange="AlternarPeriodoBitacora()"><option value="dia">Un día</option><option value="rango">Rango de fechas</option></select></div>
+          <div class="field"><label for="logDate">Fecha</label><input id="logDate" type="date"></div>
+          <div id="logEndWrap" class="field hidden"><label for="logEndDate">Fecha final</label><input id="logEndDate" type="date"></div>
+          <div class="field"><label for="logLevel">Nivel escolar</label><select id="logLevel" onchange="CargarGruposBitacora()"><option value="">Todos</option><option value="PRE">Preescolar</option><option value="PRI">Primaria</option></select></div>
+          <div class="field"><label for="logGroup">Grupo</label><select id="logGroup"><option value="">Todos los grupos</option></select></div>
+          <div class="field"><label for="logStatus">Incluir estados</label><select id="logStatus"><option value="">Todos excepto archivados</option><option value="Activa">Activas</option><option value="Resuelta">Resueltas</option><option value="Todas">Todos, incluidos archivados y descartados</option></select></div>
+          <div class="form-footer span-2"><button class="btn primary" type="button" onclick="GenerarBitacora()">Generar bitácora</button><button class="btn outline" type="button" onclick="ImprimirBitacora()">Imprimir / Guardar PDF</button></div>
+        </div><div id="bitacoraPreview" style="margin-top:20px"><div class="empty"><div class="empty-icon">▣</div>Selecciona el periodo y genera la bitácora.</div></div></div>
+      </section>
+      <section class="view" id="view-sincronizacion">
+        <div class="page-heading"><div><h1>Base de datos y sincronización</h1><p>Los registros se guardan en este dispositivo primero y se sincronizan con la hoja de incidencias configurada.</p></div></div>
+        <div class="banner">Esta instalación usa un Apps Script independiente del sistema de comedor para mantener separadas las incidencias y los registros de comida.</div>
+        <div class="cards" id="syncMetrics"></div>
+        <div class="panel"><div class="panel-head"><div><h2>Conexión a Google Sheets</h2><p>La conexión del sistema de incidencias ya está integrada en esta instalación.</p></div></div><div class="banner">Conexión configurada automáticamente. No necesitas copiar, pegar ni modificar ninguna URL.</div><div class="form-footer"><button class="btn light" onclick="ProbarConexion()">Probar conexión</button><button class="btn primary" id="syncButton" onclick="SincronizarAhora()">☁ Sincronizar ahora</button></div><div id="syncMessage" class="help" style="margin-top:12px"></div></div>
+        <div class="panel"><div class="panel-head"><div><h2>Estado de esta instalación</h2><p>La cola pendiente se conserva si la conexión falla.</p></div></div><div id="syncDetails"></div><div class="form-footer"><button class="btn outline" onclick="DescargarRespaldoJSON()">Descargar respaldo JSON</button><button class="btn outline" onclick="ImportarRespaldo()">Importar respaldo</button><input id="backupFileInput" class="hidden" type="file" accept="application/json" onchange="ProcesarImportacionRespaldo(event)"></div></div>
+        <div class="panel"><h2>Catálogo de personal</h2><p class="subtle">Solo las personas incluidas en este catálogo pueden registrar una incidencia. Antes de utilizarlo oficialmente, sustituye los ejemplos por el directorio autorizado del colegio.</p><div id="staffCatalogPreview" style="margin-top:14px"></div></div>
+        <p class="footer-note">Privacidad: la contraseña replica la del sistema anterior, pero al estar dentro del HTML es una barrera de uso casual, no una autenticación segura. Los reportes escolares incluyen información sensible de menores. Antes de usar datos reales, el acceso a la hoja y al servicio web debe quedar restringido y probado; no publiques un endpoint que permita a cualquier persona leer todas las incidencias.</p>
+      </section>
+    </main>
+  </div>
+</div>
+<div id="detailBackdrop" class="modal-backdrop" role="dialog" aria-modal="true" aria-labelledby="detailTitle"><div class="modal"><div class="modal-top"><div><h2 id="detailTitle">Detalle de incidencia</h2><div class="subtle" id="detailSubtitle"></div></div><button class="modal-close" onclick="CerrarDetalle()" aria-label="Cerrar">×</button></div><div id="detailContent"></div><div id="directionPanel" class="hidden"><div class="section-title" style="margin:18px 0 13px">Determinación de Dirección</div><div class="form-grid"><div class="field"><label for="directionBy">Persona que realiza la determinación</label><select id="directionBy"><option value="Dirección">Dirección (sin especificar)</option></select></div><div class="field"><label for="directionPriority">Nivel de atención actual</label><select id="directionPriority"><option>Urgente</option><option>Requiere una acción</option><option>Dar seguimiento</option><option>Solo informar</option></select></div><div class="field"><label for="directionStatus">Estado</label><select id="directionStatus"><option>Activa</option><option>Resuelta</option><option>Descartada</option><option>Archivada</option></select></div><div class="field span-2"><label for="directionAction">Acción determinada por Dirección</label><textarea id="directionAction" rows="2" placeholder="Qué decidió Dirección o qué acción se realizará"></textarea></div><div class="field span-2"><label for="directionNotes">Observaciones de Dirección</label><textarea id="directionNotes" rows="2" placeholder="Notas de seguimiento, acuerdos o aclaraciones"></textarea></div><div class="field"><label for="directionInformTutor">¿Informar al tutor?</label><select id="directionInformTutor"><option>No</option><option>Sí</option><option>Por determinar</option></select></div><div class="field"><label for="directionRecommendMeeting">¿Recomendar cita?</label><select id="directionRecommendMeeting" onchange="AlternarCitaDireccion()"><option>No</option><option>Sí</option><option>Por determinar</option></select></div><div class="field" id="directionMeetingStatusField"><label for="directionMeetingStatus">Estado de la cita</label><select id="directionMeetingStatus"><option>No aplica</option><option>Pendiente</option><option>Programada</option><option>Realizada</option><option>No se presentó</option><option>Reprogramar</option></select></div><div id="directionMeetingFields" class="form-grid span-2 hidden"><div class="field"><label for="directionMeetingDate">Fecha de cita</label><input id="directionMeetingDate" type="date"></div><div class="field"><label for="directionMeetingTime">Hora de cita</label><input id="directionMeetingTime" type="time"></div></div></div><div class="modal-actions"><button class="btn outline" onclick="CerrarDetalle()">Cancelar</button><button class="btn primary" onclick="GuardarDeterminacion()">Guardar determinación</button></div></div><div id="detailReadActions" class="modal-actions"><button class="btn outline" onclick="CerrarDetalle()">Cerrar</button><button class="btn primary" onclick="EditarDeterminacionDesdeDetalle()">Editar / decidir</button></div></div></div>
+<div id="cameraBackdrop" class="modal-backdrop" role="dialog" aria-modal="true" aria-labelledby="cameraTitle"><div class="modal" style="max-width:650px"><div class="modal-top"><div><h2 id="cameraTitle">Escanear identificador del alumno</h2><div class="subtle">Apunta la cámara al QR o código de barras que contenga el identificador. No se guarda ninguna imagen.</div></div><button class="modal-close" type="button" onclick="CerrarEscaner()" aria-label="Cerrar cámara">×</button></div><video id="cameraVideo" class="scanner-video" autoplay muted playsinline></video><div id="cameraStatus" class="help" style="margin-top:10px">Solicitando acceso a la cámara…</div><div class="modal-actions"><button class="btn outline" type="button" onclick="CerrarEscaner()">Cancelar escaneo</button></div></div></div>
+<div id="toast" class="toast" role="status" aria-live="polite"></div>
+<div id="bitacora-print" class="hidden"></div>
+<script>
+'use strict';
+const PASSWORD_ACCESS = '1122';
+const STORAGE_RECORDS = 'IncidenciasEscolaresRegistros_v1';
+const STORAGE_PENDING = 'IncidenciasEscolaresPendientes_v1';
+const STORAGE_URL = 'IncidenciasEscolaresUrlScriptGoogle_v1';
+const INCIDENCIAS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbwnF4bY5w4y6BgYN-_sDmCLDHg7TLwac5tcXqviW_iQNmc7eOFRZIJPRkIgW3JCD9twmw/exec';
+const STORAGE_LAST_SYNC = 'IncidenciasEscolaresUltimaSincronizacion_v1';
+const PRIORITY_ORDER = {'Urgente':0,'Requiere una acción':1,'Dar seguimiento':2,'Solo informar':3};
+const PRIORITY_CLASS = {'Urgente':'urgent','Requiere una acción':'action','Dar seguimiento':'follow','Solo informar':'info'};
+const LOCATIONS = ['Primero','Segundo','Tercero','Cuarto','Cuarto B','Quinto','Sexto','Dirección','Escaleras','Comedor','Área de piscina','Arenero','Oficinas'];
+const StaffCatalog = [
+ {NombreStaf:'A. Ezequiel Glez',Cargo:'Profesor',AreaEscolar:'Ingles',NivelTrabajo:'Primaria',GrupoAsignado:'Varios'},
+ {NombreStaf:'Patricia Isamara',Cargo:'Profesor',AreaEscolar:'TICs',NivelTrabajo:'Cocurricular',GrupoAsignado:'Varios'},
+ {NombreStaf:'Kelda',Cargo:'Directivo',AreaEscolar:'Direccion',NivelTrabajo:'Primaria',GrupoAsignado:'Varios'},
+ {NombreStaf:'Miriam',Cargo:'Directivo',AreaEscolar:'Direccion',NivelTrabajo:'Total',GrupoAsignado:'Todos'},
+ {NombreStaf:'Delfino',Cargo:'Staff',AreaEscolar:'Staff',NivelTrabajo:'Produccion',GrupoAsignado:'Todos'},
+ {NombreStaf:'Sandy',Cargo:'Profesor',AreaEscolar:'Titular',NivelTrabajo:'Primaria',GrupoAsignado:'1'}
+];
+const BaseDatosEstudiantes = [
+        {Nivel:"PRE",Grado:1,GrupoLetra:"A",IdAlumno:"A0001",Nombre:"FLORES PEREZ ANLYN AITANA"},
+        {Nivel:"PRE",Grado:1,GrupoLetra:"A",IdAlumno:"A0002",Nombre:"MENDIETA SERRANO YUI IRINA"},
+        {Nivel:"PRE",Grado:1,GrupoLetra:"A",IdAlumno:"A0003",Nombre:"RAMIREZ PEREZ LIAM MAXIMILIANO"},
+        {Nivel:"PRE",Grado:1,GrupoLetra:"A",IdAlumno:"A0004",Nombre:"VELASCO GARCIA DONOVAN TADEO"},
+        {Nivel:"PRE",Grado:1,GrupoLetra:"A",IdAlumno:"A0005",Nombre:"VILLASEÑOR PEREZ IVANNA"},
+        {Nivel:"PRE",Grado:2,GrupoLetra:"A",IdAlumno:"A0006",Nombre:"AMADO PEREZ ALEJANDRA QUETZALY"},
+        {Nivel:"PRE",Grado:2,GrupoLetra:"A",IdAlumno:"A0007",Nombre:"BETANCOURT BERNAL MARLON ANDRE"},
+        {Nivel:"PRE",Grado:2,GrupoLetra:"A",IdAlumno:"A0008",Nombre:"BRINGAS ONTIVEROS MARGARET ESTELA"},
+        {Nivel:"PRE",Grado:2,GrupoLetra:"A",IdAlumno:"A0009",Nombre:"FLORES PEREZ YAEL FERNANDO"},
+        {Nivel:"PRE",Grado:2,GrupoLetra:"A",IdAlumno:"A0010",Nombre:"GUTIERREZ FLORES MAR ISABELLA"},
+        {Nivel:"PRE",Grado:2,GrupoLetra:"A",IdAlumno:"A0011",Nombre:"MARTINEZ GONZALEZ PAULA"},
+        {Nivel:"PRE",Grado:2,GrupoLetra:"A",IdAlumno:"A0012",Nombre:"MARTINEZ VAZQUEZ AITANA"},
+        {Nivel:"PRE",Grado:2,GrupoLetra:"A",IdAlumno:"A0013",Nombre:"MEJIA MUJICA UXUE EILEEN"},
+        {Nivel:"PRE",Grado:2,GrupoLetra:"A",IdAlumno:"A0014",Nombre:"ORTIZ SAN AGUSTIN ABRAHAM"},
+        {Nivel:"PRE",Grado:2,GrupoLetra:"A",IdAlumno:"A0015",Nombre:"ROBLES MARTINEZ EDWIN ALEXANDER"},
+        {Nivel:"PRE",Grado:2,GrupoLetra:"A",IdAlumno:"A0016",Nombre:"SALVADOR HERNANDEZ IVET MARTINA"},
+        {Nivel:"PRE",Grado:2,GrupoLetra:"A",IdAlumno:"A0017",Nombre:"TAPIA HIPOLITO DEREK EDUARDO"},
+        {Nivel:"PRE",Grado:2,GrupoLetra:"A",IdAlumno:"A0018",Nombre:"TELLEZ GONZALEZ ATZIN IVONNE"},
+        {Nivel:"PRE",Grado:2,GrupoLetra:"A",IdAlumno:"A0019",Nombre:"TELLEZ GONZALEZ JADE MADAY"},
+        {Nivel:"PRE",Grado:2,GrupoLetra:"A",IdAlumno:"A0020",Nombre:"TORRES TORRES ROSA MARIA"},
+        {Nivel:"PRE",Grado:2,GrupoLetra:"A",IdAlumno:"A0021",Nombre:"VAZQUEZ PASCACIO DIEGO FERNANDO"},
+        {Nivel:"PRE",Grado:3,GrupoLetra:"A",IdAlumno:"A0022",Nombre:"ACEVEDO RAMIREZ DAYANA LIZETE"},
+        {Nivel:"PRE",Grado:3,GrupoLetra:"A",IdAlumno:"A0023",Nombre:"AVILES FLORES JULIAN"},
+        {Nivel:"PRE",Grado:3,GrupoLetra:"A",IdAlumno:"A0024",Nombre:"CATALAN OROPEZA ANDER ABIRAN FREYO"},
+        {Nivel:"PRE",Grado:3,GrupoLetra:"A",IdAlumno:"A0025",Nombre:"FLORES SUAREZ JESUS MATEO"},
+        {Nivel:"PRE",Grado:3,GrupoLetra:"A",IdAlumno:"A0026",Nombre:"GONZALEZ SERRANO MATIAS DARIEL"},
+        {Nivel:"PRE",Grado:3,GrupoLetra:"A",IdAlumno:"A0027",Nombre:"GORDILLO VELASQUEZ ANA BRENDA"},
+        {Nivel:"PRE",Grado:3,GrupoLetra:"A",IdAlumno:"A0028",Nombre:"GUTIERREZ ROMERO EMILIA XARENI"},
+        {Nivel:"PRE",Grado:3,GrupoLetra:"A",IdAlumno:"A0029",Nombre:"GUZMAN SANTANA JESUS ALBERTO"},
+        {Nivel:"PRE",Grado:3,GrupoLetra:"A",IdAlumno:"A0030",Nombre:"HERNANDEZ SORIANO AURORA BERNADETTE"},
+        {Nivel:"PRE",Grado:3,GrupoLetra:"A",IdAlumno:"A0031",Nombre:"HERRERA HERNANDEZ RUBEN DARIEL"},
+        {Nivel:"PRE",Grado:3,GrupoLetra:"A",IdAlumno:"A0032",Nombre:"HUERTA SALGADO PAVEL ELIAM"},
+        {Nivel:"PRE",Grado:3,GrupoLetra:"A",IdAlumno:"A0033",Nombre:"JIMENEZ MARTINEZ OSCAR JESUS"},
+        {Nivel:"PRE",Grado:3,GrupoLetra:"A",IdAlumno:"A0034",Nombre:"LOPEZ LOZANO ALESSANDRO SANTINO"},
+        {Nivel:"PRE",Grado:3,GrupoLetra:"A",IdAlumno:"A0035",Nombre:"MALDONADO DOMINGUEZ NOAH LIAM"},
+        {Nivel:"PRE",Grado:3,GrupoLetra:"A",IdAlumno:"A0036",Nombre:"MARTINEZ SANCHEZ JOSE LISANDRO"},
+        {Nivel:"PRE",Grado:3,GrupoLetra:"A",IdAlumno:"A0037",Nombre:"NAVARRETE RAMIREZ YALI QUETZALLI"},
+        {Nivel:"PRE",Grado:3,GrupoLetra:"A",IdAlumno:"A0038",Nombre:"RAMOS ESCOBAR NATALY REGINA"},
+        {Nivel:"PRE",Grado:3,GrupoLetra:"A",IdAlumno:"A0039",Nombre:"RODRIGUEZ MARIN KAMILA GABRIELA"},
+        {Nivel:"PRE",Grado:3,GrupoLetra:"A",IdAlumno:"A0040",Nombre:"VAZQUEZ SANCHEZ LUKA MATEO"},
+        {Nivel:"PRE",Grado:3,GrupoLetra:"A",IdAlumno:"A0041",Nombre:"ZARCO BERGES VICTORIA"},
+        {Nivel:"PRI",Grado:1,GrupoLetra:"A",IdAlumno:"A0042",Nombre:"ALVARADO GORDILLO MICHELLE"},
+        {Nivel:"PRI",Grado:1,GrupoLetra:"A",IdAlumno:"A0043",Nombre:"ARREOLA CONTRERAS KALEL"},
+        {Nivel:"PRI",Grado:1,GrupoLetra:"A",IdAlumno:"A0044",Nombre:"BAÑALES CUETO SAMANTHA"},
+        {Nivel:"PRI",Grado:1,GrupoLetra:"A",IdAlumno:"A0045",Nombre:"BARRAGAN SANCHEZ LIAM"},
+        {Nivel:"PRI",Grado:1,GrupoLetra:"A",IdAlumno:"A0046",Nombre:"CANO ESTRELLA AITANA ISABELLE"},
+        {Nivel:"PRI",Grado:1,GrupoLetra:"A",IdAlumno:"A0047",Nombre:"CHAPARRO GONZALEZ ADRIANA GUADALUPE"},
+        {Nivel:"PRI",Grado:1,GrupoLetra:"A",IdAlumno:"A0048",Nombre:"CORZA LOPEZ CHRISTOPHER JASSIEL"},
+        {Nivel:"PRI",Grado:1,GrupoLetra:"A",IdAlumno:"A0049",Nombre:"HERNANDEZ CASTELAN CEDRICK IMANOL"},
+        {Nivel:"PRI",Grado:1,GrupoLetra:"A",IdAlumno:"A0050",Nombre:"HERNANDEZ FLORES AREN DARIO"},
+        {Nivel:"PRI",Grado:1,GrupoLetra:"A",IdAlumno:"A0051",Nombre:"MARTINEZ GONZALEZ REGINA"},
+        {Nivel:"PRI",Grado:1,GrupoLetra:"A",IdAlumno:"A0052",Nombre:"MEJIA MIRANDA LEONARDO RAMSES"},
+        {Nivel:"PRI",Grado:1,GrupoLetra:"A",IdAlumno:"A0053",Nombre:"MENDEZ BARRERA LEAH REGINA"},
+        {Nivel:"PRI",Grado:1,GrupoLetra:"A",IdAlumno:"A0054",Nombre:"MOLINA SERRATO JIMENA ELIZABETH"},
+        {Nivel:"PRI",Grado:1,GrupoLetra:"A",IdAlumno:"A0055",Nombre:"MONTELLANO MENDOZA DIANA ESMERALDA"},
+        {Nivel:"PRI",Grado:1,GrupoLetra:"A",IdAlumno:"A0056",Nombre:"MONTELLANO MENDOZA MAR ZAFIRO"},
+        {Nivel:"PRI",Grado:1,GrupoLetra:"A",IdAlumno:"A0057",Nombre:"OLICON MARIN ISABELLA"},
+        {Nivel:"PRI",Grado:1,GrupoLetra:"A",IdAlumno:"A0058",Nombre:"ORTIZ LAGUNAS NATAN JONAS"},
+        {Nivel:"PRI",Grado:1,GrupoLetra:"A",IdAlumno:"A0059",Nombre:"RAMOS SANCHEZ JADE GUADALUPE"},
+        {Nivel:"PRI",Grado:1,GrupoLetra:"A",IdAlumno:"A0060",Nombre:"TELLEZ GONZALEZ EIDEN ALBERTO"},
+        {Nivel:"PRI",Grado:1,GrupoLetra:"A",IdAlumno:"A0061",Nombre:"VALERIO SALINAS SOFIA LEILANY"},
+        {Nivel:"PRI",Grado:2,GrupoLetra:"A",IdAlumno:"A0062",Nombre:"ALPIZAR GOMEZ JULIAN"},
+        {Nivel:"PRI",Grado:2,GrupoLetra:"A",IdAlumno:"A0063",Nombre:"CARREON ARCINIEGA LIA AITANA"},
+        {Nivel:"PRI",Grado:2,GrupoLetra:"A",IdAlumno:"A0064",Nombre:"CRUZ GONZALEZ SANTIAGO"},
+        {Nivel:"PRI",Grado:2,GrupoLetra:"A",IdAlumno:"A0065",Nombre:"ESCOBAR MENDOZA MIA REGINA"},
+        {Nivel:"PRI",Grado:2,GrupoLetra:"A",IdAlumno:"A0066",Nombre:"ESTRADA DE LA CRUZ SAMADHI"},
+        {Nivel:"PRI",Grado:2,GrupoLetra:"A",IdAlumno:"A0067",Nombre:"GOMEZ DURAN NESTOR IVAN"},
+        {Nivel:"PRI",Grado:2,GrupoLetra:"A",IdAlumno:"A0068",Nombre:"GONZALEZ LECONA AMARA"},
+        {Nivel:"PRI",Grado:2,GrupoLetra:"A",IdAlumno:"A0069",Nombre:"GUERRA RAMIREZ JOSE NICOLAS"},
+        {Nivel:"PRI",Grado:2,GrupoLetra:"A",IdAlumno:"A0070",Nombre:"HERNANDEZ MONTAÑO ELIAN DANIEL"},
+        {Nivel:"PRI",Grado:2,GrupoLetra:"A",IdAlumno:"A0071",Nombre:"JUAREZ LOPEZ BRIANNA KEYLIN"},
+        {Nivel:"PRI",Grado:2,GrupoLetra:"A",IdAlumno:"A0072",Nombre:"JUAREZ ZARANDA ANTONIO"},
+        {Nivel:"PRI",Grado:2,GrupoLetra:"A",IdAlumno:"A0073",Nombre:"LOZANO GOMEZ CASANDRA"},
+        {Nivel:"PRI",Grado:2,GrupoLetra:"A",IdAlumno:"A0074",Nombre:"MARTINEZ FLORES CAMILA"},
+        {Nivel:"PRI",Grado:2,GrupoLetra:"A",IdAlumno:"A0075",Nombre:"MEDINA FLORES GERALDINE"},
+        {Nivel:"PRI",Grado:2,GrupoLetra:"A",IdAlumno:"A0076",Nombre:"MEDINA VENTURA ELIAN DAVID"},
+        {Nivel:"PRI",Grado:2,GrupoLetra:"A",IdAlumno:"A0077",Nombre:"NICOLAS IBARRA ANGEL ALONSO"},
+        {Nivel:"PRI",Grado:2,GrupoLetra:"A",IdAlumno:"A0078",Nombre:"ORTIZ LAGUNAS JACOB SALOMON"},
+        {Nivel:"PRI",Grado:2,GrupoLetra:"A",IdAlumno:"A0079",Nombre:"PICHARDO ORTIZ MIA MAHELET"},
+        {Nivel:"PRI",Grado:2,GrupoLetra:"A",IdAlumno:"A0080",Nombre:"RANCAÑO MARTINEZ SOFIA MAITE"},
+        {Nivel:"PRI",Grado:2,GrupoLetra:"A",IdAlumno:"A0081",Nombre:"RANCAÑO RAZO PEDRO ALEJANDRO"},
+        {Nivel:"PRI",Grado:2,GrupoLetra:"A",IdAlumno:"A0082",Nombre:"RODRIGUEZ MARIN DIEGO EVERARDO"},
+        {Nivel:"PRI",Grado:2,GrupoLetra:"A",IdAlumno:"A0083",Nombre:"TORRES GONZALEZ SOPHIA"},
+        {Nivel:"PRI",Grado:2,GrupoLetra:"A",IdAlumno:"A0084",Nombre:"VALADES MARTINEZ LEONARDO JESUS"},
+        {Nivel:"PRI",Grado:2,GrupoLetra:"A",IdAlumno:"A0085",Nombre:"VAZQUEZ ORTEGA MATIAS NICOLAS"},
+        {Nivel:"PRI",Grado:2,GrupoLetra:"A",IdAlumno:"A0086",Nombre:"VENTURA MALDONADO MYA VALENTINA"},
+        {Nivel:"PRI",Grado:3,GrupoLetra:"A",IdAlumno:"A0087",Nombre:"ACEVEDO RAMIREZ KARLA ABIGAIL"},
+        {Nivel:"PRI",Grado:3,GrupoLetra:"A",IdAlumno:"A0088",Nombre:"BELLO MORALES DIEGO EMILIANO"},
+        {Nivel:"PRI",Grado:3,GrupoLetra:"A",IdAlumno:"A0089",Nombre:"BENITO HERNANDEZ ERIK SANTIAGO"},
+        {Nivel:"PRI",Grado:3,GrupoLetra:"A",IdAlumno:"A0090",Nombre:"BENITO HERNANDEZ MONSERRAT NOEMI"},
+        {Nivel:"PRI",Grado:3,GrupoLetra:"A",IdAlumno:"A0091",Nombre:"BUENO PUENTE SARA ESTHER"},
+        {Nivel:"PRI",Grado:3,GrupoLetra:"A",IdAlumno:"A0092",Nombre:"CAMPECH OLGUIN ALEXIS XABIER"},
+        {Nivel:"PRI",Grado:3,GrupoLetra:"A",IdAlumno:"A0093",Nombre:"CASTANEDA RODRIGUEZ VALENTINA"},
+        {Nivel:"PRI",Grado:3,GrupoLetra:"A",IdAlumno:"A0094",Nombre:"DURAN VAZQUEZ LIAM OSMAR"},
+        {Nivel:"PRI",Grado:3,GrupoLetra:"A",IdAlumno:"A0095",Nombre:"FLORES CABRERA MILDRED"},
+        {Nivel:"PRI",Grado:3,GrupoLetra:"A",IdAlumno:"A0096",Nombre:"GALLARDO VILLANUEVA ROMINA"},
+        {Nivel:"PRI",Grado:3,GrupoLetra:"A",IdAlumno:"A0097",Nombre:"GORDILLO VELASQUEZ AXEL MATEO"},
+        {Nivel:"PRI",Grado:3,GrupoLetra:"A",IdAlumno:"A0098",Nombre:"HERNANDEZ RAMOS EVAN DANIEL"},
+        {Nivel:"PRI",Grado:3,GrupoLetra:"A",IdAlumno:"A0099",Nombre:"HERRERA TORIBIO EMILIO DANIEL"},
+        {Nivel:"PRI",Grado:3,GrupoLetra:"A",IdAlumno:"A0100",Nombre:"JUAREZ LOPEZ IKER YIBRAM"},
+        {Nivel:"PRI",Grado:3,GrupoLetra:"A",IdAlumno:"A0101",Nombre:"LAZCANO MARTINEZ EMILY ISABELLA"},
+        {Nivel:"PRI",Grado:3,GrupoLetra:"A",IdAlumno:"A0102",Nombre:"LOPEZ LIRA LUCA MATIAS"},
+        {Nivel:"PRI",Grado:3,GrupoLetra:"A",IdAlumno:"A0103",Nombre:"LUIS BERMEO IAN LEONEL"},
+        {Nivel:"PRI",Grado:3,GrupoLetra:"A",IdAlumno:"A0104",Nombre:"MARCELIANO MONROY MATIAS DILAN"},
+        {Nivel:"PRI",Grado:3,GrupoLetra:"A",IdAlumno:"A0105",Nombre:"MARTINEZ FLORES ROMINA"},
+        {Nivel:"PRI",Grado:3,GrupoLetra:"A",IdAlumno:"A0106",Nombre:"MONTOYA MONJARAS ELIAS MOISES"},
+        {Nivel:"PRI",Grado:3,GrupoLetra:"A",IdAlumno:"A0107",Nombre:"MORA FRANCO NICOLE"},
+        {Nivel:"PRI",Grado:3,GrupoLetra:"A",IdAlumno:"A0108",Nombre:"NERI VASQUEZ LIAM"},
+        {Nivel:"PRI",Grado:3,GrupoLetra:"A",IdAlumno:"A0109",Nombre:"OCHOA RAMIREZ SANTIAGO MATIAS"},
+        {Nivel:"PRI",Grado:3,GrupoLetra:"A",IdAlumno:"A0110",Nombre:"PACHECO RIVERA CARLOS ALEXANDER"},
+        {Nivel:"PRI",Grado:3,GrupoLetra:"A",IdAlumno:"A0111",Nombre:"PINEDA MENDOZA EMILIO MATHEO"},
+        {Nivel:"PRI",Grado:3,GrupoLetra:"A",IdAlumno:"A0112",Nombre:"PINTO LOPEZ RENATA AYLIN"},
+        {Nivel:"PRI",Grado:3,GrupoLetra:"A",IdAlumno:"A0113",Nombre:"RAMIREZ RONQUILLO XIMENA"},
+        {Nivel:"PRI",Grado:3,GrupoLetra:"A",IdAlumno:"A0114",Nombre:"REYES GUERRERO VALERIA"},
+        {Nivel:"PRI",Grado:3,GrupoLetra:"A",IdAlumno:"A0115",Nombre:"RODRIGUEZ RODRIGUEZ DANNA ROMINA"},
+        {Nivel:"PRI",Grado:3,GrupoLetra:"A",IdAlumno:"A0116",Nombre:"SEBASTIAN SOLANO LISA GABRIELLE"},
+        {Nivel:"PRI",Grado:3,GrupoLetra:"A",IdAlumno:"A0117",Nombre:"TAPIA HIPOLITO IVANNA REGINA"},
+        {Nivel:"PRI",Grado:3,GrupoLetra:"A",IdAlumno:"A0118",Nombre:"TORRES BARAJAS SOPHIA MICHELLE"},
+        {Nivel:"PRI",Grado:3,GrupoLetra:"A",IdAlumno:"A0119",Nombre:"VENTURA MALDONADO MARCO SANTIAGO"},
+        {Nivel:"PRI",Grado:4,GrupoLetra:"A",IdAlumno:"A0120",Nombre:"CANO ESTRELLA SANTIAGO EMIR"},
+        {Nivel:"PRI",Grado:4,GrupoLetra:"A",IdAlumno:"A0121",Nombre:"CARBAJAL ZARAGOZA LUCIA"},
+        {Nivel:"PRI",Grado:4,GrupoLetra:"A",IdAlumno:"A0122",Nombre:"CARBAJAL ZARAGOZA OSCAR"},
+        {Nivel:"PRI",Grado:4,GrupoLetra:"A",IdAlumno:"A0123",Nombre:"CRUZ SANCHEZ DULCE MIRANDA"},
+        {Nivel:"PRI",Grado:4,GrupoLetra:"A",IdAlumno:"A0124",Nombre:"ESCOBEDO SANCHEZ MATHIAS ALAIN"},
+        {Nivel:"PRI",Grado:4,GrupoLetra:"A",IdAlumno:"A0125",Nombre:"FLORES GUERRERO ERIN IVANNA"},
+        {Nivel:"PRI",Grado:4,GrupoLetra:"A",IdAlumno:"A0126",Nombre:"FLORES PEREZ ETHAN GAEL"},
+        {Nivel:"PRI",Grado:4,GrupoLetra:"A",IdAlumno:"A0127",Nombre:"GOMEZ CHAVEZ ARANTZA ITZAE"},
+        {Nivel:"PRI",Grado:4,GrupoLetra:"A",IdAlumno:"A0128",Nombre:"GOMEZ DURAN LUZ ANDREA"},
+        {Nivel:"PRI",Grado:4,GrupoLetra:"A",IdAlumno:"A0129",Nombre:"GONZALEZ QUINTOS CHRISTIAN"},
+        {Nivel:"PRI",Grado:4,GrupoLetra:"A",IdAlumno:"A0130",Nombre:"GUERRERO MONTOYA ALONDRA GUADALUPE"},
+        {Nivel:"PRI",Grado:4,GrupoLetra:"A",IdAlumno:"A0131",Nombre:"HERNANDEZ RANCAÑO KATHERIN VALENTINA"},
+        {Nivel:"PRI",Grado:4,GrupoLetra:"A",IdAlumno:"A0132",Nombre:"JIMENEZ MARTINEZ ZARA ISABELLA"},
+        {Nivel:"PRI",Grado:4,GrupoLetra:"A",IdAlumno:"A0133",Nombre:"LOPEZ OJEDA MATILDA"},
+        {Nivel:"PRI",Grado:4,GrupoLetra:"A",IdAlumno:"A0134",Nombre:"MARTINEZ OLVERA SAID ANDRE"},
+        {Nivel:"PRI",Grado:4,GrupoLetra:"A",IdAlumno:"A0135",Nombre:"MENDEZ BARRERA DIEGO EMILIANO"},
+        {Nivel:"PRI",Grado:4,GrupoLetra:"A",IdAlumno:"A0136",Nombre:"MENDEZ MORENO ABRAHAM"},
+        {Nivel:"PRI",Grado:4,GrupoLetra:"A",IdAlumno:"A0137",Nombre:"MOLINA SERRATO DAYANA MAYTE"},
+        {Nivel:"PRI",Grado:4,GrupoLetra:"A",IdAlumno:"A0138",Nombre:"PEÑA MATA AMANDA"},
+        {Nivel:"PRI",Grado:4,GrupoLetra:"A",IdAlumno:"A0139",Nombre:"SANCHEZ MARTINEZ ADRIAN"},
+        {Nivel:"PRI",Grado:4,GrupoLetra:"A",IdAlumno:"A0140",Nombre:"SANTOS ARCOS LEON MICHELLE"},
+        {Nivel:"PRI",Grado:4,GrupoLetra:"A",IdAlumno:"A0141",Nombre:"XOCHIPILTECATL LUNA LUIS RODRIGO"},
+        {Nivel:"PRI",Grado:4,GrupoLetra:"B",IdAlumno:"A0142",Nombre:"AGUILAR MEDINA SOFIA FERNANDA"},
+        {Nivel:"PRI",Grado:4,GrupoLetra:"B",IdAlumno:"A0143",Nombre:"BAÑALES CUETO SOFIA"},
+        {Nivel:"PRI",Grado:4,GrupoLetra:"B",IdAlumno:"A0144",Nombre:"BLANCO MARIN SHANNON VALENTINA"},
+        {Nivel:"PRI",Grado:4,GrupoLetra:"B",IdAlumno:"A0145",Nombre:"FERNANDEZ RODRIGUEZ ELIAN MATEO"},
+        {Nivel:"PRI",Grado:4,GrupoLetra:"B",IdAlumno:"A0146",Nombre:"GARDUÑO ALFARO ABRIL"},
+        {Nivel:"PRI",Grado:4,GrupoLetra:"B",IdAlumno:"A0147",Nombre:"GODINEZ GARCIA KEYSI ODETH"},
+        {Nivel:"PRI",Grado:4,GrupoLetra:"B",IdAlumno:"A0148",Nombre:"GONZALEZ HIDALGO EVELYN DANAE"},
+        {Nivel:"PRI",Grado:4,GrupoLetra:"B",IdAlumno:"A0149",Nombre:"GONZALEZ LECONA IRENE"},
+        {Nivel:"PRI",Grado:4,GrupoLetra:"B",IdAlumno:"A0150",Nombre:"GUTIERREZ ADAME STEVEN YAZID"},
+        {Nivel:"PRI",Grado:4,GrupoLetra:"B",IdAlumno:"A0151",Nombre:"GUTIERREZ FLORES CAMILA"},
+        {Nivel:"PRI",Grado:4,GrupoLetra:"B",IdAlumno:"A0152",Nombre:"MARTINEZ MOLINA CITLALLY"},
+        {Nivel:"PRI",Grado:4,GrupoLetra:"B",IdAlumno:"A0153",Nombre:"MORA HERNANDEZ ZAID"},
+        {Nivel:"PRI",Grado:4,GrupoLetra:"B",IdAlumno:"A0154",Nombre:"NAVA CADENA ALONSO FERNANDO"},
+        {Nivel:"PRI",Grado:4,GrupoLetra:"B",IdAlumno:"A0155",Nombre:"ORTIZ PEREZ SAUL GAEL"},
+        {Nivel:"PRI",Grado:4,GrupoLetra:"B",IdAlumno:"A0156",Nombre:"OSORIO MIRELES JOEL URIEL"},
+        {Nivel:"PRI",Grado:4,GrupoLetra:"B",IdAlumno:"A0157",Nombre:"PALACIOS ISLAS GENESIS AITANA"},
+        {Nivel:"PRI",Grado:4,GrupoLetra:"B",IdAlumno:"A0158",Nombre:"PEREZ GARCIA LIAM SANTIAGO"},
+        {Nivel:"PRI",Grado:4,GrupoLetra:"B",IdAlumno:"A0159",Nombre:"PEREZ PERALTA PAOLA GETSEMANI"},
+        {Nivel:"PRI",Grado:4,GrupoLetra:"B",IdAlumno:"A0160",Nombre:"SANCHEZ MIER ABDIEL"},
+        {Nivel:"PRI",Grado:4,GrupoLetra:"B",IdAlumno:"A0161",Nombre:"SILVA RIVERO SANTIAGO ENRIQUE"},
+        {Nivel:"PRI",Grado:4,GrupoLetra:"B",IdAlumno:"A0162",Nombre:"TORRES NARANJO ADIRAM KEYLAN"},
+        {Nivel:"PRI",Grado:5,GrupoLetra:"A",IdAlumno:"A0163",Nombre:"AGUILAR BANDIN LIA OSMARA"},
+        {Nivel:"PRI",Grado:5,GrupoLetra:"A",IdAlumno:"A0164",Nombre:"AGUILAR CAMPILLO ALONDRA XARENI"},
+        {Nivel:"PRI",Grado:5,GrupoLetra:"A",IdAlumno:"A0165",Nombre:"BARROSO RAZO MATEO EMILIANO"},
+        {Nivel:"PRI",Grado:5,GrupoLetra:"A",IdAlumno:"A0166",Nombre:"BRINGAS ONTIVEROS LUCIANO ANDREE"},
+        {Nivel:"PRI",Grado:5,GrupoLetra:"A",IdAlumno:"A0167",Nombre:"BUENO PUENTE JEHU SANTIAGO"},
+        {Nivel:"PRI",Grado:5,GrupoLetra:"A",IdAlumno:"A0168",Nombre:"CASTRO MORENO IAN EDUARDO"},
+        {Nivel:"PRI",Grado:5,GrupoLetra:"A",IdAlumno:"A0169",Nombre:"CUAPIO RAMOS IAN FERNANDO"},
+        {Nivel:"PRI",Grado:5,GrupoLetra:"A",IdAlumno:"A0170",Nombre:"ESCOBAR MENDOZA DANNA SOFIA"},
+        {Nivel:"PRI",Grado:5,GrupoLetra:"A",IdAlumno:"A0171",Nombre:"FERRA JIMENEZ PAULA LEILANY"},
+        {Nivel:"PRI",Grado:5,GrupoLetra:"A",IdAlumno:"A0172",Nombre:"FUENTES SALAZAR DAVID"},
+        {Nivel:"PRI",Grado:5,GrupoLetra:"A",IdAlumno:"A0173",Nombre:"GALLARDO MUÑOZ ROMMEL YASSER"},
+        {Nivel:"PRI",Grado:5,GrupoLetra:"A",IdAlumno:"A0174",Nombre:"GARCIA RANGEL KARLA NATALY"},
+        {Nivel:"PRI",Grado:5,GrupoLetra:"A",IdAlumno:"A0175",Nombre:"GONZALEZ HERNANDEZ JORGE EDUARDO"},
+        {Nivel:"PRI",Grado:5,GrupoLetra:"A",IdAlumno:"A0176",Nombre:"GUERRERO MONTOYA DIEGO"},
+        {Nivel:"PRI",Grado:5,GrupoLetra:"A",IdAlumno:"A0177",Nombre:"JIMENEZ MARTINEZ CAMILA MELANY"},
+        {Nivel:"PRI",Grado:5,GrupoLetra:"A",IdAlumno:"A0178",Nombre:"LANDA JUAREZ BRUNO"},
+        {Nivel:"PRI",Grado:5,GrupoLetra:"A",IdAlumno:"A0179",Nombre:"LAZARO ESTRADA ARTURO"},
+        {Nivel:"PRI",Grado:5,GrupoLetra:"A",IdAlumno:"A0180",Nombre:"LUNA CERVANTES ISABELLA ALEJANDRA"},
+        {Nivel:"PRI",Grado:5,GrupoLetra:"A",IdAlumno:"A0181",Nombre:"MARTINEZ GUERRERO MIA VALENTINA"},
+        {Nivel:"PRI",Grado:5,GrupoLetra:"A",IdAlumno:"A0182",Nombre:"MEDINA FLORES BRAULIO JESUS"},
+        {Nivel:"PRI",Grado:5,GrupoLetra:"A",IdAlumno:"A0183",Nombre:"MEDINA FLORES SEBASTIAN"},
+        {Nivel:"PRI",Grado:5,GrupoLetra:"A",IdAlumno:"A0184",Nombre:"ORDAZ LOPEZ IKER ALEXANDER"},
+        {Nivel:"PRI",Grado:5,GrupoLetra:"A",IdAlumno:"A0185",Nombre:"OSORNO ROMERO VICTORIA"},
+        {Nivel:"PRI",Grado:5,GrupoLetra:"A",IdAlumno:"A0186",Nombre:"POPOCA BONILLA MARIA PAULA"},
+        {Nivel:"PRI",Grado:5,GrupoLetra:"A",IdAlumno:"A0187",Nombre:"RAMIREZ PEREZ MATEO ALONSO"},
+        {Nivel:"PRI",Grado:5,GrupoLetra:"A",IdAlumno:"A0188",Nombre:"RIVERA HERNANDEZ EDRIAN GAEL"},
+        {Nivel:"PRI",Grado:5,GrupoLetra:"A",IdAlumno:"A0189",Nombre:"SILVA GONZALEZ LUNA ABIGAIL"},
+        {Nivel:"PRI",Grado:5,GrupoLetra:"A",IdAlumno:"A0190",Nombre:"VALENCIA ROMERO MIA MELANIE"},
+        {Nivel:"PRI",Grado:5,GrupoLetra:"A",IdAlumno:"A0191",Nombre:"VELASCO GARCIA DOMINICK EMMYR"},
+        {Nivel:"PRI",Grado:6,GrupoLetra:"A",IdAlumno:"A0192",Nombre:"ALMAGUER MORENO MARTIN"},
+        {Nivel:"PRI",Grado:6,GrupoLetra:"A",IdAlumno:"A0193",Nombre:"ANGELES RAMIREZ LEON URIEL"},
+        {Nivel:"PRI",Grado:6,GrupoLetra:"A",IdAlumno:"A0194",Nombre:"BETANZOS RAMIREZ ELLIOT ARGEO"},
+        {Nivel:"PRI",Grado:6,GrupoLetra:"A",IdAlumno:"A0195",Nombre:"BRIONES ARAMBULA LEONEL ANDRE"},
+        {Nivel:"PRI",Grado:6,GrupoLetra:"A",IdAlumno:"A0196",Nombre:"BRIONES ARAMBULA RENATA GISELL"},
+        {Nivel:"PRI",Grado:6,GrupoLetra:"A",IdAlumno:"A0197",Nombre:"CARRANZA MORA IAN ANDRE"},
+        {Nivel:"PRI",Grado:6,GrupoLetra:"A",IdAlumno:"A0198",Nombre:"CONTRERAS OLMOS AITANA VALERIA"},
+        {Nivel:"PRI",Grado:6,GrupoLetra:"A",IdAlumno:"A0199",Nombre:"DE LEON GALVEZ LEONARDO DE ANGELLO"},
+        {Nivel:"PRI",Grado:6,GrupoLetra:"A",IdAlumno:"A0200",Nombre:"ECHEVERRIA AMADOR FRIDA"},
+        {Nivel:"PRI",Grado:6,GrupoLetra:"A",IdAlumno:"A0201",Nombre:"GOMEZ LIMON MAXIMO SANTIAGO"},
+        {Nivel:"PRI",Grado:6,GrupoLetra:"A",IdAlumno:"A0202",Nombre:"GONZALEZ SERRANO ZURIEL ALEJANDRO"},
+        {Nivel:"PRI",Grado:6,GrupoLetra:"A",IdAlumno:"A0203",Nombre:"MARTINEZ GUERRERO LIA ISABELLA"},
+        {Nivel:"PRI",Grado:6,GrupoLetra:"A",IdAlumno:"A0204",Nombre:"MARTINEZ VAZQUEZ ANGEL KALEB"},
+        {Nivel:"PRI",Grado:6,GrupoLetra:"A",IdAlumno:"A0205",Nombre:"NORIEGA BERNABE EMMET"},
+        {Nivel:"PRI",Grado:6,GrupoLetra:"A",IdAlumno:"A0206",Nombre:"ORDAZ CHILPA IAN SEBASTIAN"},
+        {Nivel:"PRI",Grado:6,GrupoLetra:"A",IdAlumno:"A0207",Nombre:"OROPEZA AGUILAR JIMENA MELANI"},
+        {Nivel:"PRI",Grado:6,GrupoLetra:"A",IdAlumno:"A0208",Nombre:"REYES GARCIA DYLAN DACIEL"},
+        {Nivel:"PRI",Grado:6,GrupoLetra:"A",IdAlumno:"A0209",Nombre:"ROBLES LOPEZ ARI ANDRE"},
+        {Nivel:"PRI",Grado:6,GrupoLetra:"A",IdAlumno:"A0210",Nombre:"ROSAS AGUILAR DANTE EMMANUEL"},
+        {Nivel:"PRI",Grado:6,GrupoLetra:"A",IdAlumno:"A0211",Nombre:"SANCHEZ RAMIREZ DERECK MATEO"},
+        {Nivel:"PRI",Grado:6,GrupoLetra:"A",IdAlumno:"A0212",Nombre:"SORIA MENDOZA ROGELIO CALEB"},
+        {Nivel:"PRI",Grado:6,GrupoLetra:"A",IdAlumno:"A0213",Nombre:"VALDEZ OCHOA THIAGO MATEO"}
+    ];
+let SelectedStudents = [];
+let StudentPickerFilters = {incident:{level:'',group:''},history:{level:'',group:''}};
+let CurrentDetailId = null;
+let CurrentDetailEdit = false;
+let SelectedHistoryStudent = null;
+let SelectedReportStudent = null;
+let LastBitacoraHtml = '';
+let SyncBusy = false;
+let ScannerStream = null;
+let ScannerRaf = 0;
+let ScannerDetector = null;
+let ScannerTarget = 'incident';
+let ScannerBusy = false;
+function $(id){return document.getElementById(id)}
+function esc(v){return String(v??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}
+function escAttr(v){return esc(v).replace(/`/g,'&#96;')}
+function uid(prefix='INC'){if(window.crypto&&crypto.randomUUID)return prefix+'-'+crypto.randomUUID();return prefix+'-'+Date.now()+'-'+Math.random().toString(36).slice(2,12).toUpperCase()}
+function ahora(){return new Date()}
+function pad(n){return String(n).padStart(2,'0')}
+function fechaLocal(d=new Date()){return `${d.getFullYear()}-${pad(d.getMonth()+1)}-${pad(d.getDate())}`}
+function horaLocal(d=new Date()){return `${pad(d.getHours())}:${pad(d.getMinutes())}:${pad(d.getSeconds())}`}
+function fechaLegible(fecha,hora=''){if(!fecha)return '—';const p=String(fecha).split('-');return (p.length===3?`${p[2]}/${p[1]}/${p[0]}`:fecha)+(hora?' · '+hora.slice(0,5):'')}
+function fechaHoraRegistro(r){return String(r.FechaHoraUltimaModificacion||r.FechaHoraRegistro||`${r.Fecha||''}T${r.Hora||'00:00:00'}`)}
+function parseStudents(r){try{const x=typeof r.AlumnosRelacionadosJSON==='string'?JSON.parse(r.AlumnosRelacionadosJSON||'[]'):r.AlumnosRelacionadosJSON;return Array.isArray(x)?x:[]}catch(e){return []}}
+function records(){try{const x=JSON.parse(localStorage.getItem(STORAGE_RECORDS)||'[]');return Array.isArray(x)?x:[]}catch(e){return []}}
+function pending(){try{const x=JSON.parse(localStorage.getItem(STORAGE_PENDING)||'[]');return Array.isArray(x)?x:[]}catch(e){return []}}
+function saveRecords(x){localStorage.setItem(STORAGE_RECORDS,JSON.stringify(x));RenderizarTodo()}
+function savePending(x){localStorage.setItem(STORAGE_PENDING,JSON.stringify(x));ActualizarSyncUI()}
+function allSorted(list=records()){return [...list].sort((a,b)=>{const p=(PRIORITY_ORDER[a.NivelAtencionActual]??9)-(PRIORITY_ORDER[b.NivelAtencionActual]??9);if(p)return p;return String(a.FechaHoraRegistro||`${a.Fecha||''}T${a.Hora||''}`).localeCompare(String(b.FechaHoraRegistro||`${b.Fecha||''}T${b.Hora||''}`))})}
+function incidenciaCerrada(r){return ['Resuelta','Descartada'].includes(String(r.EstadoIncidencia||'Activa'))}
+function riesgoIncidencia(r){if(incidenciaCerrada(r))return '';const nivel=r.NivelAtencionActual||r.NivelAtencionInicial;if(nivel==='Urgente')return 'record-flag-critical';const recomendado=String(r.RecomendarCita||'No');const estadoCita=String(r.EstadoCita||((recomendado==='Sí'||recomendado==='Por determinar')?(r.FechaCita?'Programada':'Pendiente'):'No aplica'));if(recomendado!=='No'&&!['Realizada','No aplica','Cancelada'].includes(estadoCita))return 'record-flag-pending';return 'record-flag-pending'}
+function etiquetaRiesgo(r){const clase=riesgoIncidencia(r);if(clase==='record-flag-critical')return '<div class="risk-indicator record-flag-critical">🔴 PRIORIDAD URGENTE · AÚN SIN RESOLVER</div>';if(clase==='record-flag-pending'){const cita=String(r.RecomendarCita||'No')!=='No'&&!['Realizada','No aplica','Cancelada'].includes(String(r.EstadoCita||((r.FechaCita?'Programada':'Pendiente'))));return `<div class="risk-indicator record-flag-pending">🟡 ${cita?'CITA PENDIENTE DE CUMPLIRSE':'PENDIENTE DE ATENCIÓN'}</div>`}return ''}
+function priorityBadge(v){return `<span class="badge ${PRIORITY_CLASS[v]||'info'}">${esc(v||'Sin nivel')}</span>`}
+function statusBadge(v){const cl={'Activa':'active','Resuelta':'resolved','Descartada':'discarded','Archivada':'archived'}[v]||'active';return `<span class="badge ${cl}">${esc(v||'Activa')}</span>`}
+function toast(msg){const el=$('toast');el.textContent=msg;el.classList.add('show');clearTimeout(toast._t);toast._t=setTimeout(()=>el.classList.remove('show'),4200)}
+function CambiarVista(view){document.querySelectorAll('.view').forEach(v=>v.classList.remove('active'));const el=$('view-'+view);if(el)el.classList.add('active');document.querySelectorAll('.nav-button').forEach(b=>b.classList.toggle('active',b.dataset.view===view||(view==='nueva'&&b.dataset.view==='inicio')));if(view==='panel')RenderizarInicio();if(view==='reportes')RenderizarReportes();if(view==='sincronizacion')RenderizarSincronizacion();if(view==='bitacora')InicializarBitacora();window.scrollTo({top:0,behavior:'smooth'})}
+function CerrarSesion(){$('app').classList.add('hidden');$('access').classList.remove('hidden');$('passwordInput').value='';sessionStorage.removeItem('IncidenciasAutorizado');AplicarTema(document.body.classList.contains('dark-mode'))}
+$('loginForm').addEventListener('submit',e=>{e.preventDefault();if($('passwordInput').value===PASSWORD_ACCESS){sessionStorage.setItem('IncidenciasAutorizado','1');$('access').classList.add('hidden');$('app').classList.remove('hidden');AplicarTema(document.body.classList.contains('dark-mode'));InicializarApp()}else{$('loginError').textContent='Contraseña incorrecta. Inténtelo de nuevo.';$('passwordInput').select()}});
+function InicializarApp(){localStorage.setItem(STORAGE_URL,INCIDENCIAS_SCRIPT_URL);CargarPersonal();RenderizarFiltrosAlumnos('incident');RenderizarFiltrosAlumnos('history');ActualizarFechaFormulario();RenderizarTodo();RenderizarSincronizacion();CargarGruposBitacora();$('logDate').value=fechaLocal();$('logEndDate').value=fechaLocal();CambiarTipoIncidencia();AlternarCita();CambiarVista('inicio')}
+function studentLevelText(n){return n==='PRI'?'Primaria':n==='PRE'?'Preescolar':(n||'')}
+function studentSubtitle(s){return `${studentLevelText(s.Nivel)} · ${s.Grado}°${s.GrupoLetra} · ${s.IdAlumno}`}
+function CargarPersonal(){const sel=$('staffSelect');sel.innerHTML='<option value="">Selecciona tu nombre...</option>'+StaffCatalog.map((s,i)=>`<option value="${i}">${esc(s.NombreStaf)} · ${esc(s.Cargo)} · ${esc(s.AreaEscolar)}</option>`).join('');const dir=$('directionBy');if(dir)dir.innerHTML='<option value="Dirección">Dirección (sin especificar)</option>'+StaffCatalog.map(s=>`<option value="${escAttr(s.NombreStaf)}">${esc(s.NombreStaf)} · ${esc(s.Cargo)}</option>`).join('');RenderStaffPreview()}
+function RenderStaffPreview(){$('staffCatalogPreview').innerHTML='<div class="table-wrap"><table style="min-width:650px"><thead><tr><th>NombreStaf</th><th>Cargo</th><th>AreaEscolar</th><th>NivelTrabajo</th><th>GrupoAsignado</th></tr></thead><tbody>'+StaffCatalog.map(s=>`<tr><td>${esc(s.NombreStaf)}</td><td>${esc(s.Cargo)}</td><td>${esc(s.AreaEscolar)}</td><td>${esc(s.NivelTrabajo)}</td><td>${esc(s.GrupoAsignado)}</td></tr>`).join('')+'</tbody></table></div>'}
+function ObtenerPersonalFormulario(){const v=$('staffSelect').value;if(v==='')return null;const s=StaffCatalog[Number(v)];return s?{...s}:null}
+function ActualizarFechaFormulario(){const d=ahora();const fecha=$('displayDate');const hora=$('displayTime');if(fecha)fecha.value=fechaLegible(fechaLocal(d));if(hora)hora.value=horaLocal(d).slice(0,5)}
+function PrepararNuevaIncidencia(){LimpiarFormulario();ActualizarFechaFormulario();$('formTitle').textContent='Registrar incidencia';$('saveIncidentBtn').textContent='Guardar incidencia'}
+function LimpiarFormulario(){const f=$('incidentForm');f.reset();SelectedStudents=[];StudentPickerFilters.incident={level:'',group:''};$('studentSearch').value='';$('studentResults').classList.add('hidden');$('selectedStudents').innerHTML='';$('staffSelect').value='';$('meetingFields').classList.add('hidden');document.querySelector('input[name="incidentType"][value="DeAlumno"]').checked=true;document.querySelector('input[name="priority"][value="Solo informar"]').checked=true;ActualizarFechaFormulario();RenderizarFiltrosAlumnos('incident');CambiarTipoIncidencia()}
+function CambiarTipoIncidencia(){const type=document.querySelector('input[name="incidentType"]:checked')?.value||'DeAlumno';$('studentBlock').classList.toggle('hidden',type==='General');$('studentSearch').required=type==='DeAlumno'&&SelectedStudents.length===0;if(type==='General'){SelectedStudents=[];RenderSelectedStudents();$('studentSearch').value='';$('studentResults').classList.add('hidden')}}
+function RenderizarFiltrosAlumnos(context){const f=StudentPickerFilters[context];const prefix=context==='incident'?'incident':'history';const levelBox=$(prefix+'LevelButtons');if(!levelBox)return;const levels=[['','Todos'],['PRE','Preescolar'],['PRI','Primaria']];levelBox.innerHTML=levels.map(([key,label])=>`<button type="button" class="student-level-button ${f.level===key?'active':''}" onclick="SeleccionarNivelEstudiantes('${context}','${key}')">${label}</button>`).join('');const groupWrap=$(prefix+'GroupWrap');const groupBox=$(prefix+'GroupButtons');if(!f.level){groupWrap.classList.add('hidden');groupBox.innerHTML='';return}groupWrap.classList.remove('hidden');const groups=[...new Set(BaseDatosEstudiantes.filter(s=>s.Nivel===f.level).map(s=>`${s.Nivel}|${s.Grado}|${s.GrupoLetra}`))].sort((a,b)=>{const x=a.split('|'),y=b.split('|');return Number(x[1])-Number(y[1])||x[2].localeCompare(y[2])});groupBox.innerHTML=`<button type="button" class="student-group-button ${f.group===''?'active':''}" onclick="SeleccionarGrupoEstudiantes('${context}','')">Todos los grupos</button>`+groups.map(g=>{const [n,grade,letter]=g.split('|');return `<button type="button" class="student-group-button ${f.group===g?'active':''}" onclick="SeleccionarGrupoEstudiantes('${context}','${escAttr(g)}')">${esc(grade)}° ${esc(letter)}</button>`}).join('')}
+function SeleccionarNivelEstudiantes(context,level){const f=StudentPickerFilters[context];f.level=level;f.group='';RenderizarFiltrosAlumnos(context);if(context==='incident'){$('studentSearch').value='';BuscarAlumnosParaAgregar(true)}else{SelectedHistoryStudent=null;$('historySearch').value='';$('historyHeader').innerHTML='';RenderStudentHistory();BuscarHistorialEstudiante(true)}}
+function SeleccionarGrupoEstudiantes(context,group){const f=StudentPickerFilters[context];f.group=group;RenderizarFiltrosAlumnos(context);if(context==='incident'){$('studentSearch').value='';BuscarAlumnosParaAgregar(true)}else{SelectedHistoryStudent=null;$('historySearch').value='';$('historyHeader').innerHTML='';RenderStudentHistory();BuscarHistorialEstudiante(true)}}
+function AlumnosFiltradosPorSelector(context,q,excludeSelected=false){const f=StudentPickerFilters[context];const already=new Set(excludeSelected?SelectedStudents.map(s=>s.IdAlumno):[]);return BaseDatosEstudiantes.filter(s=>(!f.level||s.Nivel===f.level)&&(!f.group||`${s.Nivel}|${s.Grado}|${s.GrupoLetra}`===f.group)&&!already.has(s.IdAlumno)&&(!q||norm(s.Nombre).includes(q)||norm(s.IdAlumno).includes(q)))}
+function BuscarAlumnosParaAgregar(){const input=$('studentSearch');const q=norm(input.value);const box=$('studentResults');const f=StudentPickerFilters.incident;if(!q&&!f.level&&!f.group){box.classList.add('hidden');box.innerHTML='';return}const matches=AlumnosFiltradosPorSelector('incident',q,true).slice(0,f.group?60:20);box.innerHTML=matches.length?matches.map(s=>`<button type="button" class="student-result" onclick="AgregarAlumno('${escAttr(s.IdAlumno)}')"><span><strong>${esc(s.Nombre)}</strong><small>${esc(studentSubtitle(s))}</small></span><span class="btn light small">Agregar</span></button>`).join(''):'<div class="empty" style="padding:15px">No hay alumnos para esa búsqueda o grupo.</div>';box.classList.remove('hidden')}
+function BuscarHistorialEstudiante(){const q=norm($('historySearch').value);const box=$('historySearchResults');const f=StudentPickerFilters.history;if(!q&&!f.level&&!f.group){box.classList.add('hidden');box.innerHTML='';return}const matches=AlumnosFiltradosPorSelector('history',q,false).slice(0,f.group?60:30);box.innerHTML=matches.length?matches.map(s=>`<button type="button" class="student-result" onclick="selectStudentForHistory('${escAttr(s.IdAlumno)}')"><span><strong>${esc(s.Nombre)}</strong><small>${esc(studentSubtitle(s))}</small></span><span class="cell-sub">Seleccionar</span></button>`).join(''):'<div class="empty" style="padding:14px">No hay alumnos para esa búsqueda o grupo.</div>';box.classList.remove('hidden')}
+function AgregarAlumno(id){const s=BaseDatosEstudiantes.find(x=>x.IdAlumno===id);if(!s||SelectedStudents.some(x=>x.IdAlumno===id))return;SelectedStudents.push({...s});$('studentSearch').value='';$('studentResults').classList.add('hidden');RenderSelectedStudents()}
+function QuitarAlumno(id){SelectedStudents=SelectedStudents.filter(s=>s.IdAlumno!==id);RenderSelectedStudents()}
+function RenderSelectedStudents(){$('selectedStudents').innerHTML=SelectedStudents.map(s=>`<span class="chip">${esc(s.Nombre)} <span style="font-weight:500">(${esc(s.IdAlumno)})</span><button type="button" aria-label="Quitar ${escAttr(s.Nombre)}" onclick="QuitarAlumno('${escAttr(s.IdAlumno)}')">×</button></span>`).join('');$('studentSearch').required=(document.querySelector('input[name="incidentType"]:checked')?.value||'DeAlumno')==='DeAlumno'&&SelectedStudents.length===0}
+function AlternarCita(){$('meetingFields').classList.toggle('hidden',$('recommendMeeting').value!=='Sí')}
+$('incidentForm').addEventListener('submit',e=>{e.preventDefault();const type=document.querySelector('input[name="incidentType"]:checked')?.value||'DeAlumno';const priority=document.querySelector('input[name="priority"]:checked')?.value||'Solo informar';const staff=ObtenerPersonalFormulario();if(!staff||!staff.NombreStaf){toast('Selecciona tu nombre en la lista de personal.');$('staffSelect').focus();return}if(type==='DeAlumno'&&!SelectedStudents.length){toast('Agrega al menos un alumno para una incidencia de alumno.');$('studentSearch').focus();return}if(!priority){toast('Selecciona el nivel de atención inicial.');return}const now=ahora();const record={IdIncidencia:uid('INC'),Fecha:fechaLocal(now),Hora:horaLocal(now),FechaHoraRegistro:now.toISOString(),TipoIncidencia:type,AlumnosRelacionadosJSON:JSON.stringify(type==='General'?[]:SelectedStudents),IncidenciaRedaccion:$('description').value.trim(),NivelAtencionInicial:priority,NivelAtencionActual:priority,LugarIncidencia:$('location').value,AccionRequerida:$('actionNeeded').value.trim(),InformarAlTutor:$('informTutor').value,RecomendarCita:$('recommendMeeting').value,FechaCita:$('recommendMeeting').value==='Sí'?$('meetingDate').value:'',HoraCita:$('recommendMeeting').value==='Sí'?$('meetingTime').value:'',EstadoCita:$('recommendMeeting').value==='No'?'No aplica':(($('meetingDate').value&&$('recommendMeeting').value==='Sí')?'Programada':'Pendiente'),EstadoIncidencia:'Activa',AccionDireccion:'',ObservacionesDireccion:'',FechaHoraCierre:'',NombreStaf:staff.NombreStaf,Cargo:staff.Cargo,AreaEscolar:staff.AreaEscolar,NivelTrabajo:staff.NivelTrabajo,GrupoAsignado:staff.GrupoAsignado,IdSolicitudLocal:uid('SOL'),IdSolicitudesProcesadasJSON:'[]',FechaHoraUltimaModificacion:now.toISOString(),NombreStafUltimaModificacion:staff.NombreStaf};const all=records();all.push(record);localStorage.setItem(STORAGE_RECORDS,JSON.stringify(all));const p=pending().filter(x=>x.IdIncidencia!==record.IdIncidencia);p.push(record);savePending(p);LimpiarFormulario();CambiarVista('inicio');toast(`Incidencia ${record.IdIncidencia} guardada en este dispositivo.`);});
+function norm(s){return String(s||'').normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase().trim()}
+function studentDisplayIds(r){return parseStudents(r).map(s=>s.IdAlumno).join(' ')}
+function rowStudentNames(r){return parseStudents(r).map(s=>s.Nombre).join(', ')||'Sin alumnos relacionados'}
+function OrderDate(r){return String(r.FechaHoraRegistro||`${r.Fecha||''}T${r.Hora||''}`)}
+function Metric(label,num,note,icon){return `<div class="metric"><div class="metric-top"><span>${esc(label)}</span><span class="metric-icon">${icon}</span></div><div class="metric-num">${esc(num)}</div><div class="metric-note">${esc(note)}</div></div>`}
+function RenderizarInicio(){const rs=records();const active=rs.filter(r=>!['Resuelta','Descartada','Archivada'].includes(r.EstadoIncidencia||'Activa'));const urgent=active.filter(r=>r.NivelAtencionActual==='Urgente').length;const today=fechaLocal();const todays=rs.filter(r=>r.Fecha===today).length;const waiting=pending().length;$('dashboardMetrics').innerHTML=Metric('Incidencias activas',active.length,'Requieren consulta o decisión','▤')+Metric('Atención urgente',urgent,'Incidencias activas con prioridad urgente','!')+Metric('Registradas hoy',todays,fechaLegible(today),'◷')+Metric('Pendientes de sincronizar',waiting,'Guardadas localmente','☁');const list=allSorted(rs).slice(0,7);$('recentList').innerHTML=list.length?renderEventTable(list,false):'<div class="empty"><div class="empty-icon">✳</div>Aún no hay incidencias. Registra la primera desde «Registrar incidencia».</div>'}
+function renderEventTable(list,withFilterHint=true){return `<div class="table-wrap"><table><thead><tr><th>Fecha / folio</th><th>Incidencia</th><th>Alumnos relacionados</th><th>Atención</th><th>Estado</th><th>Acceso</th></tr></thead><tbody>${list.map(r=>`<tr class="${riesgoIncidencia(r)}"><td><div class="cell-title">${esc(fechaLegible(r.Fecha,r.Hora))}</div><div class="cell-sub">${esc(r.IdIncidencia)}</div></td><td><div class="cell-title">${r.TipoIncidencia==='General'?'General':'De alumno'} · ${esc(r.LugarIncidencia)}</div><div class="cell-sub">${esc(String(r.IncidenciaRedaccion||'').slice(0,145))}${String(r.IncidenciaRedaccion||'').length>145?'…':''}</div></td><td>${esc(rowStudentNames(r))}</td><td>${priorityBadge(r.NivelAtencionActual||r.NivelAtencionInicial)}</td><td>${statusBadge(r.EstadoIncidencia||'Activa')}</td><td><button class="btn light small" onclick="AbrirDetalle('${escAttr(r.IdIncidencia)}')">Ver / decidir</button></td></tr>`).join('')}</tbody></table></div>`}
+function RenderizarReportes(){const mode=$('studentReportPanel').classList.contains('hidden')?'evento':'alumno';if(mode==='evento'){const q=norm($('eventSearch').value),priority=$('eventPriorityFilter').value,status=$('eventStatusFilter').value,type=$('eventTypeFilter').value;const list=allSorted().filter(r=>{const hay=norm([r.IdIncidencia,r.IncidenciaRedaccion,r.NombreStaf,r.Cargo,r.AreaEscolar,r.LugarIncidencia,rowStudentNames(r),studentDisplayIds(r)].join(' '));return (!q||hay.includes(q))&&(!priority||(r.NivelAtencionActual||r.NivelAtencionInicial)===priority)&&(!status||(r.EstadoIncidencia||'Activa')===status)&&(!type||r.TipoIncidencia===type)});$('eventReportTable').innerHTML=list.length?renderEventTable(list):'<div class="empty"><div class="empty-icon">⌕</div>No se encontraron incidencias con esos filtros.</div>'}else RenderStudentReport()}
+function CambiarReporte(mode){const evento=mode==='evento';$('eventReportPanel').classList.toggle('hidden',!evento);$('studentReportPanel').classList.toggle('hidden',evento);$('toggleEvento').classList.toggle('active',evento);$('toggleAlumno').classList.toggle('active',!evento);RenderizarReportes()}
+function BuscarEstudiantesVista(inputId,resultsId,callbackName){const q=norm($(inputId).value);const box=$(resultsId);if(!q){box.classList.add('hidden');box.innerHTML='';return}const matches=BaseDatosEstudiantes.filter(s=>norm(s.Nombre).includes(q)||norm(s.IdAlumno).includes(q)).slice(0,12);box.innerHTML=matches.length?matches.map(s=>`<button type="button" class="student-result" onclick="${callbackName}('${escAttr(s.IdAlumno)}')"><span><strong>${esc(s.Nombre)}</strong><small>${esc(studentSubtitle(s))}</small></span><span class="cell-sub">Seleccionar</span></button>`).join(''):'<div class="empty" style="padding:14px">No hay coincidencias en el diccionario.</div>';box.classList.remove('hidden')}
+function selectStudentForReport(id){SelectedReportStudent=BaseDatosEstudiantes.find(s=>s.IdAlumno===id)||null;$('studentReportSearch').value=SelectedReportStudent?`${SelectedReportStudent.Nombre} (${SelectedReportStudent.IdAlumno})`:'';$('studentReportResults').classList.add('hidden');RenderStudentReport()}
+function RenderStudentReport(){if(!SelectedReportStudent){$('studentReportResultsContent').innerHTML='<div class="empty">Busca y selecciona un estudiante para generar su reporte.</div>';return}const s=SelectedReportStudent;const list=allSorted().filter(r=>parseStudents(r).some(a=>a.IdAlumno===s.IdAlumno));$('studentReportResultsContent').innerHTML=`<div class="panel" style="background:#f6fafc;box-shadow:none"><strong>${esc(s.Nombre)}</strong><div class="cell-sub">${esc(studentSubtitle(s))} · ${list.length} evento(s)</div></div>`+(list.length?`<div class="table-wrap"><table style="min-width:700px"><thead><tr><th>Fecha</th><th>Folio / lugar</th><th>Descripción</th><th>Atención</th><th>Estado</th><th>Reporte</th></tr></thead><tbody>${list.map(r=>`<tr class="${riesgoIncidencia(r)}"><td>${esc(fechaLegible(r.Fecha,r.Hora))}</td><td><div class="cell-title">${esc(r.IdIncidencia)}</div><div class="cell-sub">${esc(r.LugarIncidencia)}</div></td><td>${esc(String(r.IncidenciaRedaccion||'').slice(0,180))}</td><td>${priorityBadge(r.NivelAtencionActual||r.NivelAtencionInicial)}</td><td>${statusBadge(r.EstadoIncidencia||'Activa')}</td><td><button class="btn light small" onclick="AbrirDetalle('${escAttr(r.IdIncidencia)}',true,'${escAttr(s.IdAlumno)}')">Ver evento</button></td></tr>`).join('')}</tbody></table></div>`:'<div class="empty">No hay incidencias registradas para este estudiante.</div>')+`<div class="form-footer"><button class="btn outline" onclick="ExportarReporteAlumno('${escAttr(s.IdAlumno)}')">Exportar reporte de este alumno (CSV)</button><button class="btn light" onclick="AbrirHistorialParaAlumno('${escAttr(s.IdAlumno)}')">Abrir historial del estudiante</button></div>`}
+function selectStudentForHistory(id){SelectedHistoryStudent=BaseDatosEstudiantes.find(s=>s.IdAlumno===id)||null;$('historySearch').value=SelectedHistoryStudent?`${SelectedHistoryStudent.Nombre} (${SelectedHistoryStudent.IdAlumno})`:'';$('historySearchResults').classList.add('hidden');RenderStudentHistory()}
+function AbrirHistorialParaAlumno(id){CambiarVista('historial');selectStudentForHistory(id)}
+function RenderStudentHistory(){if(!SelectedHistoryStudent){$('historyHeader').innerHTML='';$('historyContent').innerHTML='<div class="empty"><div class="empty-icon">◷</div>Seleccione un estudiante para consultar su historial.</div>';return}const s=SelectedHistoryStudent;const list=allSorted().filter(r=>parseStudents(r).some(a=>a.IdAlumno===s.IdAlumno)).sort((a,b)=>OrderDate(a).localeCompare(OrderDate(b)));$('historyHeader').innerHTML=`<div class="panel" style="margin:0;background:#f6fafc;box-shadow:none"><div class="panel-head"><div><h2>${esc(s.Nombre)}</h2><p>${esc(studentSubtitle(s))} · ${list.length} registro(s) relacionado(s)</p></div><button class="btn outline small" onclick="ImprimirHistorialAlumno()">Imprimir / PDF</button></div></div>`;if(!list.length){$('historyContent').innerHTML='<div class="empty">Este estudiante aún no tiene incidencias relacionadas.</div>';return}$('historyContent').innerHTML=list.map(r=>`<article class="history-item ${riesgoIncidencia(r)}"><div class="history-date">${esc(fechaLegible(r.Fecha,r.Hora))} · ${esc(r.IdIncidencia)}</div><div class="history-meta">${priorityBadge(r.NivelAtencionActual||r.NivelAtencionInicial)} ${statusBadge(r.EstadoIncidencia||'Activa')} <span class="cell-sub">${esc(r.LugarIncidencia||'')}</span></div><h3>${esc(r.TipoIncidencia==='General'?'Evento general relacionado':'Incidencia de alumno')}</h3><div class="history-desc">${esc(r.IncidenciaRedaccion||'')}</div>${r.AccionRequerida?`<p class="cell-sub"><strong>Acción inicialmente propuesta:</strong> ${esc(r.AccionRequerida)}</p>`:''}${r.AccionDireccion?`<p class="cell-sub"><strong>Determinación de Dirección:</strong> ${esc(r.AccionDireccion)}</p>`:''}${r.ObservacionesDireccion?`<p class="cell-sub"><strong>Seguimiento:</strong> ${esc(r.ObservacionesDireccion)}</p>`:''}${r.RecomendarCita&&r.RecomendarCita!=='No'?`<p class="cell-sub"><strong>Cita:</strong> ${esc(r.EstadoCita||'Pendiente')}${r.FechaCita?` · ${esc(fechaLegible(r.FechaCita,r.HoraCita))}`:''}</p>`:''}<p class="cell-sub">En esta vista se omiten los nombres de otros alumnos que pudieran estar vinculados al mismo evento.</p></article>`).join('')}
+function getRecord(id){return records().find(r=>r.IdIncidencia===id)}
+function AbrirDetalle(id,restrictStudent=false,studentId=''){const r=getRecord(id);if(!r)return;CurrentDetailId=id;CurrentDetailEdit=false;$('detailTitle').textContent=`Incidencia ${r.IdIncidencia}`;$('detailSubtitle').textContent=`${fechaLegible(r.Fecha,r.Hora)} · ${r.LugarIncidencia||'Lugar sin especificar'}`;const students=parseStudents(r);const visibleStudents=restrictStudent?students.filter(s=>s.IdAlumno===studentId):students;$('detailContent').innerHTML=`${etiquetaRiesgo(r)}<div class="detail-grid"><div class="detail-item"><div class="detail-label">Tipo</div><div class="detail-value">${r.TipoIncidencia==='General'?'Incidencia general':'Incidencia de alumno'}</div></div><div class="detail-item"><div class="detail-label">Atención / estado</div><div class="detail-value">${priorityBadge(r.NivelAtencionActual||r.NivelAtencionInicial)} ${statusBadge(r.EstadoIncidencia||'Activa')}</div></div><div class="detail-item full"><div class="detail-label">Descripción</div><div class="detail-value">${esc(r.IncidenciaRedaccion||'')}</div></div><div class="detail-item full"><div class="detail-label">Alumnos relacionados ${restrictStudent?'(alumno consultado)':''}</div><div class="detail-value">${visibleStudents.length?visibleStudents.map(s=>`<div>${esc(s.Nombre)} · ${esc(studentSubtitle(s))}</div>`).join(''):'Ninguno'}</div></div><div class="detail-item"><div class="detail-label">Persona que reportó</div><div class="detail-value">${esc(r.NombreStaf)} · ${esc(r.Cargo)}<br>${esc(r.AreaEscolar)} · ${esc(r.NivelTrabajo)} · Grupo asignado: ${esc(r.GrupoAsignado)}</div></div><div class="detail-item"><div class="detail-label">Tutor / cita sugerida</div><div class="detail-value">Informar al tutor: ${esc(r.InformarAlTutor||'No')}<br>Recomendar cita: ${esc(r.RecomendarCita||'No')}<br>Estado de cita: ${esc(r.EstadoCita||((r.RecomendarCita==='Sí')?'Pendiente':'No aplica'))}${r.FechaCita?`<br>Fecha: ${esc(fechaLegible(r.FechaCita,r.HoraCita))}`:''}</div></div><div class="detail-item full"><div class="detail-label">Acción requerida inicial</div><div class="detail-value">${esc(r.AccionRequerida||'No especificada')}</div></div><div class="detail-item full"><div class="detail-label">Determinación de Dirección</div><div class="detail-value">${esc(r.AccionDireccion||'Sin determinación registrada')}${r.ObservacionesDireccion?`\n${esc(r.ObservacionesDireccion)}`:''}</div></div><div class="detail-item"><div class="detail-label">Folio</div><div class="detail-value">${esc(r.IdIncidencia)}</div></div><div class="detail-item"><div class="detail-label">Última modificación</div><div class="detail-value">${esc(r.NombreStafUltimaModificacion||r.NombreStaf||'—')} · ${esc(String(r.FechaHoraUltimaModificacion||'').replace('T',' ').slice(0,19)||'—')}</div></div></div>`;$('directionPanel').classList.add('hidden');$('detailReadActions').classList.remove('hidden');$('detailBackdrop').classList.add('open');$('directionPanel').dataset.restrict=restrictStudent?'1':'0';$('directionPanel').dataset.studentId=studentId}
+function CerrarDetalle(){$('detailBackdrop').classList.remove('open');CurrentDetailId=null;CurrentDetailEdit=false}
+function EditarDeterminacionDesdeDetalle(){if($('directionPanel').dataset.restrict==='1'){toast('Desde el historial individual no se modifican las determinaciones. Abre el reporte completo por evento.');return}const r=getRecord(CurrentDetailId);if(!r)return;CurrentDetailEdit=true;$('directionBy').value='Dirección';$('directionPriority').value=r.NivelAtencionActual||r.NivelAtencionInicial||'Dar seguimiento';$('directionStatus').value=r.EstadoIncidencia||'Activa';$('directionAction').value=r.AccionDireccion||'';$('directionNotes').value=r.ObservacionesDireccion||'';$('directionInformTutor').value=r.InformarAlTutor||'No';$('directionRecommendMeeting').value=r.RecomendarCita||'No';$('directionMeetingStatus').value=r.EstadoCita||(r.RecomendarCita==='No'?'No aplica':(r.FechaCita?'Programada':'Pendiente'));$('directionMeetingDate').value=r.FechaCita||'';$('directionMeetingTime').value=r.HoraCita||'';AlternarCitaDireccion();$('directionPanel').classList.remove('hidden');$('detailReadActions').classList.add('hidden')}
+function AlternarCitaDireccion(){const valor=$('directionRecommendMeeting').value;const aplica=valor!=='No';$('directionMeetingFields').classList.toggle('hidden',valor!=='Sí');$('directionMeetingStatusField').classList.toggle('hidden',!aplica);if(!aplica)$('directionMeetingStatus').value='No aplica';else if($('directionMeetingStatus').value==='No aplica')$('directionMeetingStatus').value=valor==='Sí'&&$('directionMeetingDate').value?'Programada':'Pendiente';}
+function GuardarDeterminacion(){if(!CurrentDetailId)return;const all=records();const i=all.findIndex(r=>r.IdIncidencia===CurrentDetailId);if(i<0)return;const r={...all[i]};const now=ahora();r.NivelAtencionActual=$('directionPriority').value;r.EstadoIncidencia=$('directionStatus').value;r.AccionDireccion=$('directionAction').value.trim();r.ObservacionesDireccion=$('directionNotes').value.trim();r.InformarAlTutor=$('directionInformTutor').value;r.RecomendarCita=$('directionRecommendMeeting').value;r.EstadoCita=r.RecomendarCita==='No'?'No aplica':$('directionMeetingStatus').value;r.FechaCita=r.RecomendarCita==='Sí'?$('directionMeetingDate').value:'';r.HoraCita=r.RecomendarCita==='Sí'?$('directionMeetingTime').value:'';r.FechaHoraCierre=['Resuelta','Descartada'].includes(r.EstadoIncidencia)?(r.FechaHoraCierre||now.toISOString()):'';r.FechaHoraUltimaModificacion=now.toISOString();r.NombreStafUltimaModificacion=$('directionBy').value||'Dirección';r.IdSolicitudLocal=uid('SOL');all[i]=r;localStorage.setItem(STORAGE_RECORDS,JSON.stringify(all));savePending(pending().filter(x=>x.IdIncidencia!==r.IdIncidencia).concat([r]));CerrarDetalle();RenderizarTodo();toast('Determinación guardada localmente. Sincroniza para enviarla a la hoja.');}
+function renderDetailRefresh(){if(CurrentDetailId)AbrirDetalle(CurrentDetailId)}
+function ExportarIncidenciasCSV(){const list=allSorted();if(!list.length){toast('No hay incidencias para exportar.');return}const cols=['IdIncidencia','Fecha','Hora','FechaHoraRegistro','TipoIncidencia','AlumnosRelacionadosJSON','IncidenciaRedaccion','NivelAtencionInicial','NivelAtencionActual','LugarIncidencia','AccionRequerida','InformarAlTutor','RecomendarCita','FechaCita','HoraCita','EstadoCita','EstadoIncidencia','AccionDireccion','ObservacionesDireccion','FechaHoraCierre','NombreStaf','Cargo','AreaEscolar','NivelTrabajo','GrupoAsignado','IdSolicitudLocal','IdSolicitudesProcesadasJSON','FechaHoraUltimaModificacion','NombreStafUltimaModificacion'];downloadText('﻿'+[cols,...list.map(r=>cols.map(c=>r[c]??''))].map(row=>row.map(csv).join(',')).join('\r\n'),'Incidencias_Escolares.csv','text/csv;charset=utf-8');toast('Se preparó la descarga del reporte CSV.')}
+function ExportarReporteAlumno(id){const s=BaseDatosEstudiantes.find(x=>x.IdAlumno===id);if(!s)return;const list=allSorted().filter(r=>parseStudents(r).some(a=>a.IdAlumno===id));const cols=['IdIncidencia','Fecha','Hora','IdAlumnoConsultado','NombreAlumnoConsultado','TipoIncidencia','IncidenciaRedaccion','NivelAtencionActual','LugarIncidencia','EstadoIncidencia','AccionRequerida','AccionDireccion','ObservacionesDireccion'];downloadText('﻿'+[cols,...list.map(r=>cols.map(c=>({'IdAlumnoConsultado':id,'NombreAlumnoConsultado':s.Nombre}[c]??r[c]??'')))].map(row=>row.map(csv).join(',')).join('\r\n'),`Reporte_${id}.csv`,'text/csv;charset=utf-8')}
+function csv(v){return '"'+String(v??'').replace(/"/g,'""')+'"'}
+function downloadText(content,name,type){const blob=new Blob([content],{type});const url=URL.createObjectURL(blob);const a=document.createElement('a');a.href=url;a.download=name;document.body.appendChild(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(url),1000)}
+function ImprimirHistorialAlumno(){if(!SelectedHistoryStudent)return;const s=SelectedHistoryStudent;const list=allSorted().filter(r=>parseStudents(r).some(a=>a.IdAlumno===s.IdAlumno)).sort((a,b)=>OrderDate(a).localeCompare(OrderDate(b)));const items=list.map(r=>`<div class="print-entry"><h3>${esc(fechaLegible(r.Fecha,r.Hora))} · ${esc(r.IdIncidencia)}</h3><p><strong>Lugar:</strong> ${esc(r.LugarIncidencia)} · <strong>Atención:</strong> ${esc(r.NivelAtencionActual||r.NivelAtencionInicial)} · <strong>Estado:</strong> ${esc(r.EstadoIncidencia||'Activa')}</p><p><strong>Descripción:</strong><br>${esc(r.IncidenciaRedaccion)}</p><p><strong>Acción de Dirección:</strong><br>${esc(r.AccionDireccion||'')}</p><p><strong>Seguimiento:</strong><br>${esc(r.ObservacionesDireccion||'')}</p><p class="print-note">En esta vista se omiten los nombres de otros alumnos vinculados al mismo evento.</p></div>`).join('');const w=window.open('','_blank');if(!w){toast('El navegador bloqueó la ventana de impresión. Permite ventanas emergentes para imprimir.');return}w.document.write(`<!doctype html><html><head><title>Historial escolar ${esc(s.IdAlumno)}</title><meta charset="utf-8"><style>body{font:11pt/1.4 Arial,sans-serif;color:#111;margin:18mm}h1{text-align:center;font-size:18pt}h2{text-align:center;font-size:13pt}.print-entry{border:1px solid #999;padding:10px;margin:12px 0;break-inside:avoid}.print-entry h3{margin:0 0 8px}.print-note{font-size:9pt;color:#444}</style></head><body><h1>Colegio Anglo Mexicano</h1><h2>Historial del estudiante</h2><p><strong>Estudiante:</strong> ${esc(s.Nombre)}<br><strong>Identificador:</strong> ${esc(s.IdAlumno)}<br><strong>Grupo:</strong> ${esc(studentSubtitle(s))}<br><strong>Generado:</strong> ${esc(fechaLegible(fechaLocal()))}</p>${items||'<p>No hay incidencias relacionadas.</p>'}</body></html>`);w.document.close();w.focus();setTimeout(()=>w.print(),250)}
+function AlternarPeriodoBitacora(){$('logEndWrap').classList.toggle('hidden',$('logMode').value!=='rango')}
+function CargarGruposBitacora(){const level=$('logLevel').value;const groups=[...new Set(BaseDatosEstudiantes.filter(s=>!level||s.Nivel===level).map(s=>`${s.Nivel}|${s.Grado}|${s.GrupoLetra}`))].sort((a,b)=>a.localeCompare(b,undefined,{numeric:true}));const sel=$('logGroup');const old=sel.value;sel.innerHTML='<option value="">Todos los grupos</option>'+groups.map(g=>{const [n,gr,l]=g.split('|');return `<option value="${escAttr(g)}">${esc(studentLevelText(n))} · ${gr}°${esc(l)}</option>`}).join('');if(groups.includes(old))sel.value=old}
+function InicializarBitacora(){if(!$('logDate').value)$('logDate').value=fechaLocal();if(!$('logEndDate').value)$('logEndDate').value=fechaLocal();AlternarPeriodoBitacora();CargarGruposBitacora()}
+function GenerarBitacora(){const start=$('logDate').value;const end=$('logMode').value==='rango'?$('logEndDate').value:start;if(!start||!end||end<start){toast('Revisa las fechas de la bitácora.');return}const g=$('logGroup').value;const level=$('logLevel').value;const status=$('logStatus').value;const list=allSorted().filter(r=>r.Fecha>=start&&r.Fecha<=end&&parseStudents(r).length&& (status==='Todas'||(status===''?r.EstadoIncidencia!=='Archivada':r.EstadoIncidencia===status))&&parseStudents(r).some(s=>(!level||s.Nivel===level)&&(!g||`${s.Nivel}|${s.Grado}|${s.GrupoLetra}`===g)));const groups=new Map();for(const r of list){for(const s of parseStudents(r)){if(level&&s.Nivel!==level)continue;if(g&&`${s.Nivel}|${s.Grado}|${s.GrupoLetra}`!==g)continue;const key=`${r.Fecha}|${s.Nivel}|${s.Grado}|${s.GrupoLetra}`;if(!groups.has(key))groups.set(key,[]);if(!groups.get(key).some(x=>x.r.IdIncidencia===r.IdIncidencia&&x.s.IdAlumno===s.IdAlumno))groups.get(key).push({r,s})}}const pages=[...groups.entries()].sort((a,b)=>a[0].localeCompare(b[0],undefined,{numeric:true}));if(!pages.length){$('bitacoraPreview').innerHTML='<div class="empty">No hay incidencias de alumnos para ese periodo y grupo. Las incidencias generales sin alumnos no forman parte de la bitácora individual.</div>';LastBitacoraHtml='';return}LastBitacoraHtml=pages.map(([key,items])=>{const [date,n,grade,letter]=key.split('|');const rows=items.sort((a,b)=>OrderDate(a.r).localeCompare(OrderDate(b.r))).map(({r,s})=>`<div class="print-entry"><h3>${esc(fechaLegible(r.Fecha,r.Hora))} · ${esc(r.IdIncidencia)}</h3><p><strong>Alumno:</strong> ${esc(s.Nombre)} (${esc(s.IdAlumno)}) · <strong>Grupo:</strong> ${esc(studentLevelText(s.Nivel))} ${esc(s.Grado)}°${esc(s.GrupoLetra)}</p><p><strong>Lugar:</strong> ${esc(r.LugarIncidencia)} · <strong>Nivel de atención:</strong> ${esc(r.NivelAtencionActual||r.NivelAtencionInicial)}</p><p><strong>Descripción:</strong><br>${esc(r.IncidenciaRedaccion)}</p><p><strong>Acción requerida:</strong><br>${esc(r.AccionRequerida||'No especificada')}</p><p><strong>Determinación de Dirección:</strong><br>${esc(r.AccionDireccion||'Pendiente de determinación')}</p><p><strong>Acuerdos con familia:</strong><br>________________________________________________________________________</p><p><strong>Informar al tutor:</strong> ${esc(r.InformarAlTutor||'No especificado')} · <strong>Cita recomendada:</strong> ${esc(r.RecomendarCita||'No')}${r.FechaCita?` · ${esc(fechaLegible(r.FechaCita,r.HoraCita))}`:''}</p></div>`).join('');return `<section class="print-page"><h1>Colegio Anglo Mexicano</h1><h2>Bitácora de incidencias escolares</h2><div class="print-meta"><div><strong>Fecha:</strong> ${esc(fechaLegible(date))}</div><div><strong>Nivel:</strong> ${esc(studentLevelText(n))}</div><div><strong>Grado y grupo:</strong> ${esc(grade)}°${esc(letter)}</div><div><strong>Personal que da seguimiento:</strong> __________________</div></div>${rows}<div class="print-signatures"><div>Firma del responsable escolar</div><div>Firma / acuerdo de madre, padre o tutor</div></div></section>`}).join('');$('bitacoraPreview').innerHTML=`<div class="panel-head"><div><h2>Vista previa de la bitácora</h2><p>${pages.length} sección(es) por día y grupo · ${list.length} incidencia(s) con alumnos relacionados</p></div><button class="btn primary" onclick="ImprimirBitacora()">Imprimir / Guardar PDF</button></div><div>${pages.map(([key,items])=>{const [date,n,grade,letter]=key.split('|');return `<div class="history-item"><div class="history-date">${esc(fechaLegible(date))} · ${esc(studentLevelText(n))} ${esc(grade)}°${esc(letter)}</div><strong>${items.length} registro(s) de alumno</strong><p class="cell-sub">${esc([...new Set(items.map(x=>x.r.IdIncidencia))].join(', '))}</p></div>`}).join('')}</div>`}
+function ImprimirBitacora(){if(!LastBitacoraHtml){toast('Primero genera la bitácora.');return}const w=window.open('','_blank');if(!w){toast('El navegador bloqueó la ventana. Permite ventanas emergentes para imprimir.');return}w.document.write(`<!doctype html><html><head><meta charset="utf-8"><title>Bitácora escolar</title><style>@page{margin:12mm}body{margin:0;color:#111;font:11pt/1.35 Georgia,serif}.print-page{padding:6mm 5mm;page-break-after:always}.print-page:last-child{page-break-after:auto}.print-page h1{text-align:center;font-size:18pt;margin:0 0 4mm}.print-page h2{text-align:center;font-size:13pt;margin:0 0 6mm}.print-meta{display:grid;grid-template-columns:1fr 1fr;gap:3mm 9mm;border:1px solid #999;padding:4mm;margin:4mm 0}.print-entry{border:1px solid #999;padding:4mm;margin:4mm 0;break-inside:avoid}.print-entry h3{margin:0 0 2mm;font-size:12pt}.print-entry p{margin:2mm 0}.print-signatures{display:grid;grid-template-columns:1fr 1fr;gap:15mm;margin-top:15mm}.print-signatures div{border-top:1px solid #333;text-align:center;padding-top:2mm}</style></head><body>${LastBitacoraHtml}</body></html>`);w.document.close();w.focus();setTimeout(()=>w.print(),300)}
+async function AbrirEscaner(target='incident'){
+  ScannerTarget=target;ScannerBusy=false;
+  if(!navigator.mediaDevices||!navigator.mediaDevices.getUserMedia){toast('Este navegador no permite abrir la cámara desde esta ubicación. Escribe el identificador manualmente.');return}
+  if(!('BarcodeDetector' in window)){toast('Este navegador no tiene lector QR/código de barras integrado. Puedes buscar por nombre o escribir el identificador.');return}
+  try{
+    const supported=await window.BarcodeDetector.getSupportedFormats();
+    const wanted=['qr_code','code_128','code_39','ean_13','ean_8','upc_a','upc_e','data_matrix','itf'];
+    const formats=wanted.filter(f=>supported.includes(f));
+    if(!formats.length){toast('El navegador no ofrece formatos de código compatibles. Usa la búsqueda manual.');return}
+    ScannerDetector=new window.BarcodeDetector({formats});
+    ScannerStream=await navigator.mediaDevices.getUserMedia({video:{facingMode:{ideal:'environment'}},audio:false});
+    const video=$('cameraVideo');video.srcObject=ScannerStream;$('cameraBackdrop').classList.add('open');$('cameraStatus').textContent='Mantén el código dentro del recuadro de la cámara.';await video.play();
+    const loop=async()=>{if(!ScannerStream||ScannerBusy)return;try{const codes=await ScannerDetector.detect(video);if(codes&&codes.length&&codes[0].rawValue){ScannerBusy=true;ProcesarCodigoEscaneado(codes[0].rawValue);return}}catch(e){}ScannerRaf=requestAnimationFrame(loop)};
+    ScannerRaf=requestAnimationFrame(loop);
+  }catch(err){CerrarEscaner();toast('No se pudo abrir la cámara. Revisa permisos del navegador o busca al alumno manualmente. ('+(err&&err.name?err.name:'error')+')')}
+}
+function CerrarEscaner(){if(ScannerRaf)cancelAnimationFrame(ScannerRaf);ScannerRaf=0;ScannerBusy=false;const video=$('cameraVideo');if(video)video.srcObject=null;if(ScannerStream){ScannerStream.getTracks().forEach(t=>t.stop());ScannerStream=null}if($('cameraBackdrop'))$('cameraBackdrop').classList.remove('open')}
+function ProcesarCodigoEscaneado(raw){const valor=String(raw||'').trim();CerrarEscaner();const normalized=norm(valor);const coded=valor.toUpperCase().match(/[A-Z]{1,4}\d{3,8}/);const key=coded?coded[0]:valor;const alumno=BaseDatosEstudiantes.find(s=>norm(s.IdAlumno)===norm(key))||BaseDatosEstudiantes.find(s=>normalized.includes(norm(s.IdAlumno)));
+  if(alumno){if(ScannerTarget==='incident')AgregarAlumno(alumno.IdAlumno);else if(ScannerTarget==='history')selectStudentForHistory(alumno.IdAlumno);else if(ScannerTarget==='report')selectStudentForReport(alumno.IdAlumno);toast('Alumno identificado: '+alumno.Nombre);return}
+  const inputId=ScannerTarget==='incident'?'studentSearch':ScannerTarget==='history'?'historySearch':'studentReportSearch';$(inputId).value=valor;$(inputId).dispatchEvent(new Event('input',{bubbles:true}));toast('Se leyó el código, pero no coincide exactamente con un ID del diccionario. Revisa el valor o selecciona una coincidencia.');
+}
+function RenderizarTodo(){RenderizarInicio();if($('view-reportes').classList.contains('active'))RenderizarReportes();if($('view-historial').classList.contains('active'))RenderStudentHistory();ActualizarSyncUI()}
+function RenderizarSincronizacion(){const r=records(),p=pending();$('syncMetrics').innerHTML=Metric('Registros en este dispositivo',r.length,'Incluye los recibidos y pendientes','▤')+Metric('Pendientes de envío',p.length,'No se borran si falla la conexión','☁')+Metric('Alumnos en diccionario',BaseDatosEstudiantes.length,'Copiado del sistema de comedor','♙')+Metric('Personal de ejemplo',StaffCatalog.length,'Catálogo inicial para pruebas','♧');$('syncDetails').innerHTML=`<p><strong>URL configurada:</strong> ${localStorage.getItem(STORAGE_URL)?'Sí':'No'}</p><p><strong>Última sincronización confirmada:</strong> ${esc(localStorage.getItem(STORAGE_LAST_SYNC)||'Aún no realizada')}</p><p><strong>Estado:</strong> ${p.length?'Hay registros pendientes.':'Sin registros pendientes localmente.'}</p>`;ActualizarSyncUI()}
+function ActualizarSyncUI(){const count=pending().length;const url=localStorage.getItem(STORAGE_URL)||'';const dot=$('topSync').querySelector('.dot');if(url){dot.className='dot '+(count===0?'good':'');$('topSyncText').textContent=count?`${count} pendiente(s)`:'Con URL configurada'}else{dot.className='dot';$('topSyncText').textContent='Modo local'}if($('syncMetrics')){$('syncMetrics').innerHTML=Metric('Registros locales',records().length,'Guardados en este navegador','▤')+Metric('Pendientes',count,'Aún no confirmados en la nube','☁')+Metric('En memoria remota','—','Se actualiza al conectar','↔')+Metric('Alumnos',BaseDatosEstudiantes.length,'Diccionario integrado','♙');if($('syncDetails'))$('syncDetails').innerHTML=`<p><strong>URL configurada:</strong> ${url?'Sí':'No'}</p><p><strong>Última sincronización confirmada:</strong> ${esc(localStorage.getItem(STORAGE_LAST_SYNC)||'Aún no realizada')}</p><p><strong>Estado:</strong> ${count?'Hay '+count+' registros pendientes.':'Sin registros pendientes localmente.'}</p>`}}
+function GuardarUrlScript(){localStorage.setItem(STORAGE_URL,INCIDENCIAS_SCRIPT_URL);ActualizarSyncUI();}
+function urlScript(){return INCIDENCIAS_SCRIPT_URL}
+async function ObtenerNube(){const url=urlScript();if(!url)throw new Error('Primero pega y guarda la URL del Apps Script de incidencias.');const resp=await fetch(url+(url.includes('?')?'&':'?')+'_t='+Date.now(),{method:'GET',cache:'no-store'});if(!resp.ok)throw new Error('El servidor devolvió HTTP '+resp.status);const data=await resp.json();if(data.status!=='SUCCESS'||!Array.isArray(data.records))throw new Error(data.message||'El servidor no devolvió registros válidos.');return data.records}
+async function ProbarConexion(){GuardarUrlScript();if(!urlScript())return;const out=$('syncMessage');out.textContent='Probando conexión de lectura...';try{const rs=await ObtenerNube();out.textContent=`Conexión correcta. La hoja devuelve ${rs.length} incidencia(s).`;toast('Conexión comprobada.')}catch(e){out.textContent='No se pudo conectar: '+e.message+' Si el HTML se abrió como archivo local y el navegador bloquea la conexión, habrá que alojarlo en HTTPS.';toast('No se pudo comprobar la conexión. Revisa URL y permisos.')}}
+async function SincronizarAhora(){if(SyncBusy)return;GuardarUrlScript();if(!urlScript())return;SyncBusy=true;$('syncButton').disabled=true;$('syncButton').textContent='Sincronizando…';$('syncMessage').textContent='Consultando y sincronizando. Los registros se conservan hasta su confirmación.';try{let cloud=await ObtenerNube();MergeCloud(cloud);let queue=pending();if(queue.length){await fetch(urlScript(),{method:'POST',mode:'no-cors',headers:{'Content-Type':'text/plain;charset=utf-8'},body:JSON.stringify(queue)});let confirmed=new Set();for(let attempt=0;attempt<4;attempt++){await new Promise(res=>setTimeout(res,1000));try{cloud=await ObtenerNube();MergeCloud(cloud);const ids=new Set();cloud.forEach(r=>{const current=String(r.IdSolicitudLocal||'').trim();if(current)ids.add(current);try{const history=JSON.parse(String(r.IdSolicitudesProcesadasJSON||'[]'));if(Array.isArray(history))history.forEach(id=>{if(id)ids.add(String(id))})}catch(e){}});queue.forEach(r=>{if(ids.has(String(r.IdSolicitudLocal||'')))confirmed.add(String(r.IdSolicitudLocal))});if(confirmed.size>=queue.length)break}catch(e){if(attempt===3)throw e}}if(confirmed.size){savePending(pending().filter(r=>!confirmed.has(String(r.IdSolicitudLocal||''))))}if(confirmed.size<queue.length){throw new Error(`Se confirmaron ${confirmed.size} de ${queue.length}. Los demás permanecen pendientes; puedes volver a intentar sin crear duplicados.`)}}cloud=await ObtenerNube();MergeCloud(cloud);localStorage.setItem(STORAGE_LAST_SYNC,fechaLegible(fechaLocal(),horaLocal().slice(0,5)));$('syncMessage').textContent=`Sincronización confirmada. La base remota contiene ${cloud.length} evento(s); pendientes locales: ${pending().length}.`+(pending().length?' Algunos eventos siguen pendientes; verifica la conexión antes de cerrar.':'');toast('Sincronización verificada.')}catch(e){$('syncMessage').textContent='La sincronización no quedó confirmada: '+e.message+' Los registros locales se conservaron para reintentar.';toast('No se perdió la cola local. Revisa la conexión.')}finally{SyncBusy=false;$('syncButton').disabled=false;$('syncButton').textContent='☁ Sincronizar ahora';RenderizarSincronizacion()}}
+function MergeCloud(cloud){const local=records();const map=new Map();for(const r of cloud){if(r&&r.IdIncidencia)map.set(r.IdIncidencia,r)}for(const r of local){if(!r||!r.IdIncidencia)continue;const remote=map.get(r.IdIncidencia);if(!remote||String(fechaHoraRegistro(r))>=String(fechaHoraRegistro(remote)))map.set(r.IdIncidencia,r)}localStorage.setItem(STORAGE_RECORDS,JSON.stringify([...map.values()]));RenderizarTodo()}
+function DescargarRespaldoJSON(){const pack={app:'Incidencias Escolares',version:1,exportedAt:new Date().toISOString(),records:records(),pending:pending()};downloadText(JSON.stringify(pack,null,2),'Respaldo_Incidencias_'+fechaLocal()+'.json','application/json');toast('Respaldo local descargado.')}
+function ImportarRespaldo(){$('backupFileInput').click()}
+function ProcesarImportacionRespaldo(e){const file=e.target.files&&e.target.files[0];if(!file)return;const rd=new FileReader();rd.onload=()=>{try{const d=JSON.parse(String(rd.result||''));if(!Array.isArray(d.records))throw new Error('El archivo no contiene records.');if(!confirm(`Se importarán ${d.records.length} registro(s). Si el mismo IdIncidencia ya existe, prevalecerá la versión con fecha de modificación más reciente. ¿Continuar?`))return;const map=new Map(records().map(r=>[r.IdIncidencia,r]));for(const r of d.records){if(!r.IdIncidencia)continue;const old=map.get(r.IdIncidencia);if(!old||String(fechaHoraRegistro(r))>=String(fechaHoraRegistro(old)))map.set(r.IdIncidencia,r)}localStorage.setItem(STORAGE_RECORDS,JSON.stringify([...map.values()]));const pmap=new Map(pending().map(r=>[r.IdIncidencia,r]));for(const r of (Array.isArray(d.pending)?d.pending:[])){if(r.IdIncidencia)pmap.set(r.IdIncidencia,r)}savePending([...pmap.values()]);RenderizarTodo();toast('Respaldo importado.');}catch(err){toast('No se pudo importar: '+err.message)}finally{e.target.value=''}};rd.readAsText(file)}
+function AplicarTema(oscuro){document.body.classList.toggle('dark-mode',Boolean(oscuro));try{localStorage.setItem('incidenciasTema',oscuro?'oscuro':'claro')}catch(e){}const etiqueta=oscuro?'☀️ Modo claro':'🌙 Modo oscuro';const appVisible=$('app')&&!$('app').classList.contains('hidden');const loginButton=$('themeToggleLogin');if(loginButton)loginButton.style.display=appVisible?'none':'inline-flex';['themeToggleLogin','themeToggleApp'].forEach(id=>{const b=$(id);if(b){b.textContent=etiqueta;b.setAttribute('aria-pressed',oscuro?'true':'false');b.title=oscuro?'Cambiar a modo claro':'Activar modo oscuro'}});const meta=document.querySelector('meta[name="theme-color"]');if(meta)meta.setAttribute('content',oscuro?'#0b1118':'#183b56')}
+function AlternarTema(){AplicarTema(!document.body.classList.contains('dark-mode'))}
+function CambiarModoOscuro(){AlternarTema()}
+function InicializarEstadoDeInicio(){RenderizarTodo();ActualizarSyncUI()}
+document.addEventListener('keydown',e=>{if(e.key==='Escape'){CerrarDetalle();CerrarEscaner()}});$('cameraBackdrop').addEventListener('click',e=>{if(e.target===$('cameraBackdrop'))CerrarEscaner()});$('detailBackdrop').addEventListener('click',e=>{if(e.target===$('detailBackdrop'))CerrarDetalle()});
+// Fechas, grupos y controles se inicializan en cada sesión autorizada.
+if(sessionStorage.getItem('IncidenciasAutorizado')==='1'){ $('access').classList.add('hidden');$('app').classList.remove('hidden');AplicarTema(document.body.classList.contains('dark-mode'));InicializarApp(); }else{AplicarTema(document.body.classList.contains('dark-mode'));}
+</script>
+</body>
+</html>
